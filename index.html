@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>loosenut.zip - the official page of loosenut83</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=VT323&family=Courier+Prime&display=swap');
+
+  body {
+    background-color: #000080;
+    background-image: 
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,128,0.3) 2px,
+        rgba(0,0,128,0.3) 4px
+      );
+    margin: 0;
+    padding: 10px;
+    font-family: 'Courier Prime', 'Courier New', monospace;
+    color: #00ff00;
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Cpolygon points='0,0 0,20 5,15 8,22 11,21 8,14 14,14' fill='%2300ff00' stroke='%23000' stroke-width='1'/%3E%3C/svg%3E"), auto;
+  }
+
+  .page-wrapper {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  /* ===== HEADER ===== */
+  .header {
+    background: #000;
+    border: 3px ridge #c0c0c0;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 8px;
+  }
+
+  .site-title {
+    font-family: 'VT323', monospace;
+    font-size: 64px;
+    color: #ff0;
+    text-shadow: 3px 3px #ff6600, -1px -1px #ff0000;
+    margin: 0;
+    line-height: 1;
+    letter-spacing: 4px;
+    animation: flicker 4s infinite;
+  }
+
+  @keyframes flicker {
+    0%, 95%, 100% { opacity: 1; }
+    96% { opacity: 0.6; }
+    97% { opacity: 1; }
+    98% { opacity: 0.4; }
+    99% { opacity: 1; }
+  }
+
+  .tagline {
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+    color: #00ffff;
+    margin: 4px 0 0 0;
+    letter-spacing: 2px;
+  }
+
+  /* ===== MARQUEE ===== */
+  .marquee-bar {
+    background: #ff0000;
+    border: 2px solid #ffff00;
+    padding: 4px 0;
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    color: #ffff00;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-bottom: 8px;
+  }
+
+  .marquee-inner {
+    display: inline-block;
+    animation: marquee 18s linear infinite;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(100vw); }
+    100% { transform: translateX(-100%); }
+  }
+
+  /* ===== LAYOUT ===== */
+  .main-layout {
+    width: 100%;
+  }
+
+  .content {
+    width: 100%;
+  }
+
+  /* ===== BOXES ===== */
+  .box {
+    background: #000;
+    border: 2px ridge #c0c0c0;
+    margin-bottom: 8px;
+    padding: 0;
+  }
+
+  .box-title {
+    background: linear-gradient(to right, #000080, #0000cc, #000080);
+    color: #fff;
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    padding: 3px 8px;
+    border-bottom: 2px solid #c0c0c0;
+    letter-spacing: 1px;
+  }
+
+  .box-content {
+    padding: 8px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  /* ===== COUNTER ===== */
+  .counter-box {
+    background: #000;
+    border: 3px inset #808080;
+    text-align: center;
+    padding: 10px 8px;
+    margin-bottom: 8px;
+  }
+
+  .counter-label {
+    font-family: 'VT323', monospace;
+    font-size: 14px;
+    color: #c0c0c0;
+    display: block;
+    margin-bottom: 6px;
+    letter-spacing: 1px;
+  }
+
+  .counter-display {
+    font-family: 'VT323', monospace;
+    font-size: 36px;
+    color: #00ff00;
+    background: #001100;
+    border: 2px inset #004400;
+    padding: 4px 12px;
+    display: inline-block;
+    letter-spacing: 6px;
+    text-shadow: 0 0 8px #00ff00;
+  }
+
+  .counter-since {
+    font-size: 10px;
+    color: #808080;
+    display: block;
+    margin-top: 4px;
+    font-family: 'Courier New', monospace;
+  }
+
+  /* ===== NAV LINKS ===== */
+  .nav-links a {
+    display: block;
+    color: #ffff00;
+    text-decoration: none;
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    padding: 2px 0;
+    border-bottom: 1px dashed #333;
+    letter-spacing: 1px;
+  }
+
+  .nav-links a:hover {
+    color: #00ffff;
+    background: #001133;
+    padding-left: 6px;
+  }
+
+  .nav-links a::before {
+    content: ">> ";
+    color: #ff6600;
+  }
+
+  /* ===== BLOG POSTS ===== */
+  .post {
+    border: 2px ridge #808080;
+    background: #000811;
+    margin-bottom: 10px;
+    padding: 0;
+  }
+
+  .post-header {
+    background: linear-gradient(to right, #330000, #660000, #330000);
+    padding: 4px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #880000;
+  }
+
+  .post-title {
+    font-family: 'VT323', monospace;
+    font-size: 22px;
+    color: #ffcc00;
+    letter-spacing: 1px;
+  }
+
+  .post-date {
+    font-size: 11px;
+    color: #ff8888;
+    font-family: 'Courier New', monospace;
+  }
+
+  .post-body {
+    padding: 10px 12px;
+    font-size: 13px;
+    color: #ccffcc;
+    line-height: 1.7;
+  }
+
+  .post-body p {
+    margin: 0 0 8px 0;
+  }
+
+  .post-footer {
+    padding: 4px 12px;
+    border-top: 1px dashed #333;
+    font-size: 11px;
+    color: #666;
+    font-family: 'Courier New', monospace;
+  }
+
+  .post-footer a {
+    color: #0099ff;
+    text-decoration: underline;
+  }
+
+  /* ===== DIVIDER ===== */
+  .divider {
+    border: none;
+    border-top: 2px solid;
+    border-image: linear-gradient(to right, #000, #ff0000, #ff6600, #ffff00, #00ff00, #00ffff, #0000ff, #000) 1;
+    margin: 8px 0;
+  }
+
+  /* ===== BADGES ===== */
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    padding: 6px;
+  }
+
+  .badge {
+    width: 88px;
+    height: 31px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'VT323', monospace;
+    font-size: 11px;
+    text-align: center;
+    line-height: 1.1;
+    letter-spacing: 0.5px;
+    border: 1px solid;
+    cursor: pointer;
+  }
+
+  .badge-ie { background: #003399; color: #fff; border-color: #6699ff; }
+  .badge-nn { background: #009900; color: #fff; border-color: #00ff00; }
+  .badge-flash { background: #cc0000; color: #fff; border-color: #ff6666; }
+  .badge-800 { background: #333; color: #ffff00; border-color: #ffff00; }
+  .badge-linux { background: #000; color: #ffcc00; border-color: #ffcc00; }
+  .badge-geocities { background: #660099; color: #fff; border-color: #cc66ff; }
+
+  /* ===== GUESTBOOK ===== */
+  .guestbook-entry {
+    border-bottom: 1px dashed #333;
+    padding: 6px 0;
+    font-size: 12px;
+    color: #aaffaa;
+  }
+
+  .guestbook-entry:last-child { border-bottom: none; }
+
+  .gb-name {
+    color: #ffff00;
+    font-family: 'VT323', monospace;
+    font-size: 16px;
+  }
+
+  .gb-loc {
+    color: #888;
+    font-size: 10px;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    background: #000;
+    border: 2px ridge #c0c0c0;
+    text-align: center;
+    padding: 10px;
+    margin-top: 8px;
+    font-size: 11px;
+    color: #808080;
+    font-family: 'Courier New', monospace;
+  }
+
+  .footer a { color: #0066ff; }
+
+  .best-viewed {
+    color: #ffff00;
+    font-family: 'VT323', monospace;
+    font-size: 16px;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  /* ===== BLINK ===== */
+  .blink {
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { visibility: visible; }
+    50% { visibility: hidden; }
+  }
+
+  /* ===== EMAIL ===== */
+  .email-me {
+    text-align: center;
+    padding: 8px;
+  }
+
+  .email-btn {
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    background: linear-gradient(to bottom, #ffff00, #ff6600);
+    color: #000;
+    border: 3px outset #ffcc00;
+    padding: 4px 12px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .email-btn:active {
+    border-style: inset;
+  }
+
+  /* ===== MOOD ===== */
+  .mood {
+    font-size: 12px;
+    color: #aaa;
+    text-align: center;
+    padding: 6px;
+    font-family: 'Courier New', monospace;
+  }
+
+  .mood span { color: #ff99ff; }
+
+  /* animated star divider */
+  .stardiv {
+    text-align: center;
+    font-size: 14px;
+    color: #ffff00;
+    letter-spacing: 4px;
+    margin: 4px 0;
+  }
+
+  /* scrolling image strip placeholder */
+  .under-construction {
+    text-align: center;
+    font-family: 'VT323', monospace;
+    font-size: 22px;
+    color: #ff0000;
+    background: #ffff00;
+    border: 3px solid #ff0000;
+    padding: 4px;
+    margin-bottom: 8px;
+    animation: constr 0.5s step-end infinite;
+  }
+
+  @keyframes constr {
+    0% { background: #ffff00; color: #ff0000; }
+    50% { background: #000000; color: #ffff00; }
+  }
+
+</style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- HEADER -->
+  <div class="header">
+    <h1 class="site-title">loosenut.zip</h1>
+    <p class="tagline">:: the official page of loosenut83 :: est. 2026 ::</p>
+    <div style="margin-top:10px;">
+      <span class="counter-label">YOU ARE VISITOR</span>
+      <div class="counter-display" id="counter">000042</div>
+      <span class="counter-since">since jan 14 2025</span>
+    </div>
+    <div style="margin-top:12px;">
+      <a href="#" class="email-btn">📖 SIGN MY GUESTBOOK</a>
+    </div>
+
+  </div>
+
+  <!-- MARQUEE -->
+  <div class="marquee-bar">
+    <span class="marquee-inner">
+      ★ WELCOME TO MY PAGE ★ &nbsp;&nbsp;&nbsp; you are visitor number 000042 &nbsp;&nbsp;&nbsp; ★ BEST VIEWED IN 800x600 ★ &nbsp;&nbsp;&nbsp; sign my guestbook!!!! &nbsp;&nbsp;&nbsp; ★ NO HOTLINKING ★ &nbsp;&nbsp;&nbsp; last updated: tuesday &nbsp;&nbsp;&nbsp; ★ WELCOME TO MY PAGE ★
+    </span>
+  </div>
+
+  <!-- UNDER CONSTRUCTION -->
+  <div class="under-construction">⚠ THIS SITE IS ALWAYS UNDER CONSTRUCTION ⚠</div>
+
+  <div class="main-layout">
+
+    <!-- MAIN CONTENT -->
+    <div class="content" style="width:100%;">
+
+      <div class="post">
+        <div class="post-header">
+          <span class="post-title">i bought a domain name lol</span>
+          <span class="post-date">tuesday, 14 jan 2025 | 11:47pm</span>
+        </div>
+        <div class="post-body">
+          <p>so yeah. i bought <strong style="color:#ffff00">loosenut.zip</strong>. ten bucks. i have no idea what im going to do with it but here we are. it felt necessary.</p>
+          <p>been thinking about going back to basics lately. you know how websites used to just be... a page? someone's page? you'd stumble onto it through a webring or someone's links list and it was just some guy writing about whatever. no algorithm, no engagement metrics, no "content strategy". just a page.</p>
+          <p>anyway this is my page now. i'm going to write stuff here when i feel like it. no schedule. probably nobody will read it. that's fine actually that sounds great.</p>
+          <p>the .zip thing is a bit stupid and i love it.</p>
+        </div>
+        <div class="post-footer">
+          posted by <strong>loosenut83</strong> &nbsp;|&nbsp; <a href="#">permalink</a> &nbsp;|&nbsp; <a href="#">0 comments</a>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div class="post">
+        <div class="post-header">
+          <span class="post-title">things i remember about the old web</span>
+          <span class="post-date">monday, 13 jan 2025 | 2:14am</span>
+        </div>
+        <div class="post-body">
+          <p>couldn't sleep. made a list.</p>
+          <p>
+            &gt; hit counters<br>
+            &gt; "best viewed in 800x600"<br>
+            &gt; webrings<br>
+            &gt; the sound a 56k modem made<br>
+            &gt; geocities neighbourhoods<br>
+            &gt; "this page is under construction"<br>
+            &gt; ICQ uh-oh sounds at 1am<br>
+            &gt; javascript snow effects in december<br>
+            &gt; animated "email me" buttons<br>
+            &gt; midi files autoplaying<br>
+            &gt; guestbooks<br>
+            &gt; link exchanges<br>
+            &gt; tiled background images<br>
+            &gt; "you need internet explorer 4.0 to view this site"<br>
+            &gt; the guy who ran a fansite for something and clearly knew more about it than anyone on earth
+          </p>
+          <p>that last one is the one i miss the most honestly. pure undiluted enthusiasm with nowhere better to put it.</p>
+        </div>
+        <div class="post-footer">
+          posted by <strong>loosenut83</strong> &nbsp;|&nbsp; <a href="#">permalink</a> &nbsp;|&nbsp; <a href="#">3 comments</a>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div class="post">
+        <div class="post-header">
+          <span class="post-title">hello world (again)</span>
+          <span class="post-date">monday, 06 apr 2026 | 9:33pm</span>
+        </div>
+        <div class="post-body">
+          <p>hi. i used to have a page back in the day. this is me trying to remember how.</p>
+          <p>expect: random thoughts, links i like, maybe some photos, definitely some rambling. not expecting anyone to read this. if you found this somehow, hi. leave a note in the guestbook so i know you're real.</p>
+          <p><span class="blink">█</span></p>
+        </div>
+        <div class="post-footer">
+          posted by <strong>loosenut83</strong> &nbsp;|&nbsp; <a href="#">permalink</a> &nbsp;|&nbsp; <a href="#">1 comment</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span class="best-viewed">★ BEST VIEWED IN INTERNET EXPLORER 5.5 AT 800×600 ★</span>
+    <div class="stardiv">· · · ✦ · · ·</div>
+    © 2025 loosenut83 · all rights reserved · no hotlinking · <a href="#">valid html 4.0</a><br>
+    <span style="font-size:10px">this page has taken <span id="loadtime"></span>ms to load</span>
+  </div>
+
+</div>
+
+<script>
+  // fake counter that increments occasionally
+  let count = 42;
+  const counterEl = document.getElementById('counter');
+  
+  function pad(n) { return String(n).padStart(6, '0'); }
+  
+  setInterval(() => {
+    if (Math.random() < 0.3) {
+      count++;
+      counterEl.textContent = pad(count);
+    }
+  }, 8000);
+
+  // load time
+  window.addEventListener('load', () => {
+    document.getElementById('loadtime').textContent = 
+      Math.floor(Math.random() * 4000 + 800);
+  });
+</script>
+</body>
+</html>
