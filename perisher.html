@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perisher Aug 2026 — Scott & Crew</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --snow: #f4f6f8; --ice: #dce8f0; --deep: #0d1f2d; --navy: #1a3346;
+    --mid: #2e5573; --accent: #5ba4cf; --gold: #e8b86d; --text: #1a2d3d; --muted: #6b8a9e;
+  }
+  body { font-family: 'DM Sans', sans-serif; background: var(--snow); color: var(--text); min-height: 100vh; }
+
+  .hero {
+    background: linear-gradient(170deg, var(--deep) 0%, var(--navy) 40%, var(--mid) 100%);
+    padding: 60px 24px 80px; text-align: center; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content:''; position:absolute; inset:0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
+  }
+  .snowflakes { position:absolute; top:0; left:0; right:0; bottom:0; pointer-events:none; overflow:hidden; }
+  .snowflake { position:absolute; color:rgba(255,255,255,0.15); animation:fall linear infinite; }
+  @keyframes fall {
+    0%{transform:translateY(-20px) rotate(0deg);opacity:0}
+    10%{opacity:1} 90%{opacity:.5}
+    100%{transform:translateY(220px) rotate(360deg);opacity:0}
+  }
+  .hero-badge {
+    display:inline-block; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2);
+    color:var(--gold); font-size:.72rem; font-weight:600; letter-spacing:.2em; text-transform:uppercase;
+    padding:6px 16px; border-radius:20px; margin-bottom:20px;
+  }
+  .hero h1 { font-family:'Playfair Display',serif; font-size:clamp(2.4rem,6vw,3.8rem); color:#fff; line-height:1.1; margin-bottom:12px; }
+  .hero h1 em { font-style:italic; color:var(--gold); }
+  .hero-sub { color:rgba(255,255,255,.65); font-size:1rem; font-weight:300; margin-bottom:36px; letter-spacing:.03em; }
+  .hero-dates {
+    display:inline-flex; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15);
+    border-radius:12px; overflow:hidden;
+  }
+  .hero-date-item { padding:14px 24px; text-align:center; }
+  .hero-date-item+.hero-date-item { border-left:1px solid rgba(255,255,255,.15); }
+  .hero-date-label { font-size:.65rem; letter-spacing:.15em; text-transform:uppercase; color:rgba(255,255,255,.5); margin-bottom:4px; }
+  .hero-date-val { color:#fff; font-weight:600; font-size:.9rem; }
+
+  .crew-strip {
+    background:var(--deep); padding:18px 24px;
+    display:flex; justify-content:center; flex-wrap:wrap; gap:10px;
+  }
+  .crew-pill {
+    background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1);
+    border-radius:30px; padding:7px 14px; display:flex; align-items:center; gap:8px;
+  }
+  .crew-avatar {
+    width:28px; height:28px; border-radius:50%; display:flex; align-items:center;
+    justify-content:center; font-size:.68rem; font-weight:700; color:#fff; flex-shrink:0;
+  }
+  .crew-name { color:#fff; font-size:.82rem; font-weight:500; }
+  .crew-role { color:var(--muted); font-size:.68rem; }
+
+  .container { max-width:780px; margin:0 auto; padding:40px 20px 80px; }
+
+  .alert {
+    background:#fff8ec; border:1px solid var(--gold); border-left:4px solid var(--gold);
+    border-radius:10px; padding:14px 18px; display:flex; align-items:center; gap:12px; margin-bottom:36px;
+  }
+  .alert-icon { font-size:1.3rem; flex-shrink:0; }
+  .alert-text { font-size:.87rem; color:#6b4c00; line-height:1.4; }
+  .alert-text strong { color:#4a3300; }
+
+  .section-title {
+    font-family:'Playfair Display',serif; font-size:1.5rem; color:var(--deep);
+    margin-bottom:20px; display:flex; align-items:center; gap:10px;
+  }
+  .section-title::after { content:''; flex:1; height:1px; background:var(--ice); }
+
+  .travel-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:40px; }
+  @media(max-width:520px){.travel-grid{grid-template-columns:1fr}}
+  .travel-card {
+    background:#fff; border-radius:14px; padding:20px;
+    border:1px solid var(--ice); box-shadow:0 2px 12px rgba(13,31,45,.05);
+  }
+  .travel-card-header { display:flex; align-items:center; gap:10px; margin-bottom:14px; }
+  .travel-icon {
+    width:36px; height:36px; background:var(--deep); border-radius:8px;
+    display:flex; align-items:center; justify-content:center; font-size:1rem; color:#fff; flex-shrink:0;
+  }
+  .travel-card-title { font-weight:600; font-size:.9rem; color:var(--deep); }
+  .travel-card-sub { font-size:.75rem; color:var(--muted); }
+  .flight-row { display:flex; justify-content:space-between; align-items:center; }
+  .flight-time { font-weight:700; font-size:1.1rem; color:var(--deep); }
+  .flight-city { color:var(--muted); font-size:.75rem; margin-top:2px; }
+  .flight-arrow { color:var(--accent); font-size:1.2rem; }
+  .flight-meta { font-size:.72rem; color:var(--muted); margin-top:10px; padding-top:10px; border-top:1px solid var(--ice); }
+  .conf { font-family:monospace; background:var(--ice); padding:1px 6px; border-radius:4px; font-size:.78rem; }
+
+  .accom-card {
+    background:var(--deep); border-radius:16px; padding:24px;
+    color:#fff; margin-bottom:40px; position:relative; overflow:hidden;
+  }
+  .accom-card::before { content:'🏔'; position:absolute; right:20px; top:16px; font-size:5rem; opacity:.07; }
+  .accom-badge {
+    display:inline-block; background:#2a9d5c; color:#fff;
+    font-size:.65rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+    padding:3px 10px; border-radius:12px; margin-bottom:10px;
+  }
+  .accom-name { font-family:'Playfair Display',serif; font-size:1.4rem; margin-bottom:4px; }
+  .accom-loc { color:rgba(255,255,255,.55); font-size:.85rem; margin-bottom:18px; }
+  .accom-meta { display:flex; flex-wrap:wrap; gap:10px; }
+  .accom-meta-item { background:rgba(255,255,255,.08); border-radius:8px; padding:10px 16px; }
+  .accom-meta-label { font-size:.65rem; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.45); margin-bottom:3px; }
+  .accom-meta-val { font-weight:600; font-size:.88rem; }
+  .accom-meta-val.gold { color:var(--gold); }
+
+  .day-card {
+    background:#fff; border-radius:16px; margin-bottom:16px;
+    border:1px solid var(--ice); box-shadow:0 2px 16px rgba(13,31,45,.05); overflow:hidden;
+  }
+  .day-header {
+    padding:18px 24px; display:flex; align-items:center; gap:16px;
+    border-bottom:1px solid transparent; cursor:pointer; user-select:none; transition:border-color .3s;
+  }
+  .day-card.open .day-header { border-bottom-color:var(--ice); }
+  .day-num {
+    width:44px; height:44px; background:var(--deep); color:#fff; border-radius:10px;
+    display:flex; flex-direction:column; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .day-num-label { font-size:.52rem; letter-spacing:.1em; text-transform:uppercase; opacity:.6; }
+  .day-num-val { font-weight:700; font-size:1.1rem; line-height:1; }
+  .day-title-wrap { flex:1; }
+  .day-title { font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--deep); }
+  .day-date { font-size:.75rem; color:var(--muted); margin-top:2px; }
+  .day-chevron { color:var(--muted); font-size:1rem; transition:transform .3s; }
+  .day-card.open .day-chevron { transform:rotate(180deg); }
+  .day-body { padding:0 24px; max-height:0; overflow:hidden; transition:max-height .4s ease, padding .3s; }
+  .day-card.open .day-body { max-height:2000px; padding:20px 24px 24px; }
+
+  .timeline { position:relative; padding-left:28px; }
+  .timeline::before {
+    content:''; position:absolute; left:7px; top:6px; bottom:6px;
+    width:2px; background:var(--ice); border-radius:2px;
+  }
+  .tl-item { position:relative; margin-bottom:18px; }
+  .tl-item:last-child { margin-bottom:0; }
+  .tl-dot {
+    position:absolute; left:-24px; top:5px;
+    width:14px; height:14px; border-radius:50%; border:2px solid #fff;
+  }
+  .tl-time { font-size:.68rem; color:var(--muted); font-weight:600; letter-spacing:.05em; margin-bottom:2px; }
+  .tl-title { font-weight:600; font-size:.9rem; color:var(--deep); margin-bottom:2px; }
+  .tl-desc { font-size:.8rem; color:var(--muted); line-height:1.55; }
+  .tl-tag {
+    display:inline-block; font-size:.62rem; font-weight:600; letter-spacing:.07em;
+    text-transform:uppercase; padding:2px 8px; border-radius:8px; margin-top:5px;
+  }
+  .tag-ski{background:#e8f4fd;color:#2e5573}
+  .tag-travel{background:#e8eafd;color:#2e3573}
+  .tag-food{background:#fdf4e8;color:#735a2e}
+  .tag-accom{background:#edfdf3;color:#1a5c38}
+  .tag-apres{background:#fde8f4;color:#73295a}
+  .tag-admin{background:#f0e8fd;color:#4a2e73}
+
+  .tips-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:40px; }
+  @media(max-width:520px){.tips-grid{grid-template-columns:1fr}}
+  .tip-card {
+    background:#fff; border-radius:12px; padding:16px;
+    border:1px solid var(--ice); font-size:.82rem; color:var(--text); line-height:1.55;
+  }
+  .tip-card-title { font-weight:600; font-size:.85rem; margin-bottom:6px; color:var(--deep); }
+
+  .footer {
+    text-align:center; padding:30px 20px; border-top:1px solid var(--ice);
+    font-size:.78rem; color:var(--muted);
+  }
+  .footer strong { color:var(--deep); }
+  .weather-loading { color:var(--muted); font-size:.82rem; }
+  .weather-day {
+    display:flex; align-items:center; justify-content:space-between;
+    padding:8px 0; border-bottom:1px solid var(--ice); font-size:.82rem;
+  }
+  .weather-day:last-child { border-bottom:none; }
+  .weather-date { color:var(--muted); font-size:.72rem; width:60px; flex-shrink:0; }
+  .weather-icon { font-size:1.3rem; width:30px; text-align:center; flex-shrink:0; }
+  .weather-temps { font-weight:600; color:var(--deep); font-size:.85rem; }
+  .weather-desc { color:var(--muted); font-size:.72rem; flex:1; text-align:right; }
+  .weather-snow { color:#5ba4cf; font-size:.7rem; font-weight:600; }
+  @media(max-width:520px){#weather-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="snowflakes" id="sf"></div>
+  <div class="hero-badge">⛷ Perisher 2026</div>
+  <h1>Let it <em>Snow</em></h1>
+  <p class="hero-sub">Scott & the Crew — August Ski Trip</p>
+  <div class="hero-dates">
+    <div class="hero-date-item"><div class="hero-date-label">Fly Out</div><div class="hero-date-val">Wed 12 Aug</div></div>
+    <div class="hero-date-item"><div class="hero-date-label">Nights</div><div class="hero-date-val">4 Nights</div></div>
+    <div class="hero-date-item"><div class="hero-date-label">Fly Back</div><div class="hero-date-val">Sun 16 Aug</div></div>
+    <div class="hero-date-item"><div class="hero-date-label">Crew</div><div class="hero-date-val">6 People</div></div>
+  </div>
+</div>
+
+<div class="crew-strip">
+  <div class="crew-pill"><div class="crew-avatar" style="background:#1a5c8a">SC</div><div><div class="crew-name">Scott</div></div></div>
+  <div class="crew-pill"><div class="crew-avatar" style="background:#8a1a5c">LA</div><div><div class="crew-name">Lauren</div></div></div>
+  <div class="crew-pill"><div class="crew-avatar" style="background:#5c8a1a">CA</div><div><div class="crew-name">Caileigh</div></div></div>
+  <div class="crew-pill"><div class="crew-avatar" style="background:#8a5c1a">JA</div><div><div class="crew-name">Jake</div></div></div>
+  <div class="crew-pill"><div class="crew-avatar" style="background:#1a8a5c">SA</div><div><div class="crew-name">Sam</div></div></div>
+  <div class="crew-pill"><div class="crew-avatar" style="background:#5c1a8a">MI</div><div><div class="crew-name">Mikki</div></div></div>
+</div>
+
+<div class="container">
+
+  <!-- TO DO LIST -->
+  <div style="background:#fff;border:1px solid var(--ice);border-radius:14px;padding:22px 24px;margin-bottom:36px;box-shadow:0 2px 12px rgba(13,31,45,.05)">
+    <div style="font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--deep);margin-bottom:16px;">✅ Pre-Trip To Do</div>
+    <div id="todos" style="display:flex;flex-direction:column;gap:10px;">
+      <label style="display:flex;align-items:center;gap:12px;cursor:pointer;font-size:.88rem;color:var(--text);">
+        <input type="checkbox" onchange="toggleTodo(this)" style="width:18px;height:18px;accent-color:var(--deep);cursor:pointer;flex-shrink:0;">
+        <span>Upload photos to Perisher accounts (all 6 people) — required before collecting passes</span>
+      </label>
+      <label style="display:flex;align-items:center;gap:12px;cursor:pointer;font-size:.88rem;color:var(--text);">
+        <input type="checkbox" checked onchange="toggleTodo(this)" style="width:18px;height:18px;accent-color:var(--deep);cursor:pointer;flex-shrink:0;">
+        <span style="text-decoration:line-through;color:var(--muted)">Book lift passes</span>
+      </label>
+      <label style="display:flex;align-items:center;gap:12px;cursor:pointer;font-size:.88rem;color:var(--text);">
+        <input type="checkbox" checked onchange="toggleTodo(this)" style="width:18px;height:18px;accent-color:var(--deep);cursor:pointer;flex-shrink:0;">
+        <span style="text-decoration:line-through;color:var(--muted)">Book ski lesson</span>
+      </label>
+      <label style="display:flex;align-items:center;gap:12px;cursor:pointer;font-size:.88rem;color:var(--text);">
+        <input type="checkbox" checked onchange="toggleTodo(this)" style="width:18px;height:18px;accent-color:var(--deep);cursor:pointer;flex-shrink:0;">
+        <span style="text-decoration:line-through;color:var(--muted)">Book ski rental — <a href="https://www.theshedskihire.com.au" target="_blank" style="color:var(--accent)">The Shed Ski Hire</a> (15% off online)</span>
+      </label>
+      <label style="display:flex;align-items:center;gap:12px;cursor:pointer;font-size:.88rem;color:var(--text);">
+        <input type="checkbox" checked onchange="toggleTodo(this)" style="width:18px;height:18px;accent-color:var(--deep);cursor:pointer;flex-shrink:0;">
+        <span style="text-decoration:line-through;color:var(--muted)">Book hire car</span>
+      </label>
+    </div>
+  </div>
+
+  <h2 class="section-title">✈️ Flights</h2>
+  <div class="travel-grid">
+    <div class="travel-card">
+      <div class="travel-card-header">
+        <div class="travel-icon">🛫</div>
+        <div><div class="travel-card-title">Outbound</div><div class="travel-card-sub">Wednesday 12 August</div></div>
+      </div>
+      <div class="flight-row">
+        <div><div class="flight-time">7:05 am</div><div class="flight-city">Brisbane (BNE)</div></div>
+        <div class="flight-arrow">→</div>
+        <div style="text-align:right"><div class="flight-time">8:40 am</div><div class="flight-city">Sydney (SYD)</div></div>
+      </div>
+      <div class="flight-meta">Virgin Australia VA916 · Economy · 1h 35m<br>Confirmation: <span class="conf">GRZMTX</span></div>
+    </div>
+    <div class="travel-card">
+      <div class="travel-card-header">
+        <div class="travel-icon">🛬</div>
+        <div><div class="travel-card-title">Return</div><div class="travel-card-sub">Sunday 16 August</div></div>
+      </div>
+      <div class="flight-row">
+        <div><div class="flight-time">5:00 pm</div><div class="flight-city">Sydney (SYD)</div></div>
+        <div class="flight-arrow">→</div>
+        <div style="text-align:right"><div class="flight-time">6:30 pm</div><div class="flight-city">Brisbane (BNE)</div></div>
+      </div>
+      <div class="flight-meta">Virgin Australia VA965 · Economy · 1h 30m<br>Confirmation: <span class="conf">GRZMTX</span></div>
+    </div>
+  </div>
+
+  <h2 class="section-title">🚗 Hire Car</h2>
+  <div class="travel-grid" style="margin-bottom:40px">
+    <div class="travel-card">
+      <div class="travel-card-header">
+        <div class="travel-icon">🔑</div>
+        <div><div class="travel-card-title">SIXT — Ford Tourneo (8-seater)</div><div class="travel-card-sub">Booked via Qantas · Pay at pick-up</div></div>
+      </div>
+      <div style="font-size:.82rem;color:var(--text);display:flex;flex-direction:column;gap:6px;">
+        <div><span style="color:var(--muted);font-size:.75rem">Pick-up</span><br><strong>Wed 12 Aug · 8:30am</strong><br><span style="color:var(--muted);font-size:.75rem">Departure Plaza, Terminal Building, Mascot SYD</span></div>
+        <div style="border-top:1px solid var(--ice);padding-top:6px"><span style="color:var(--muted);font-size:.75rem">Drop-off</span><br><strong>Sun 16 Aug · 5:30pm</strong><br><span style="color:var(--muted);font-size:.75rem">Departure Plaza, Terminal Building, Mascot SYD</span></div>
+      </div>
+      <div class="flight-meta">
+        Booking Ref: <span class="conf">AU889621950</span> · Confirmation: <span class="conf">9944025539</span><br>
+        8 passengers · 3 bags · Automatic · A/C · AUD$841.95 pay at pick-up
+      </div>
+    </div>
+    <div class="travel-card">
+      <div class="travel-card-header">
+        <div class="travel-icon">📋</div>
+        <div><div class="travel-card-title">What Lauren needs at pick-up</div><div class="travel-card-sub">Main driver: Lauren Poynting</div></div>
+      </div>
+      <div style="font-size:.82rem;color:var(--text);display:flex;flex-direction:column;gap:6px;line-height:1.5;">
+        <div>✔ Valid credit card in Lauren's name</div>
+        <div>✔ Original full driver's licence (physical)</div>
+        <div>✔ Valid photo ID (passport)</div>
+        <div>✔ This rental confirmation</div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="section-title">🎿 Ski Hire</h2>
+  <div class="travel-grid" style="margin-bottom:40px">
+    <div class="travel-card">
+      <div class="travel-card-header">
+        <div class="travel-icon">⛷</div>
+        <div><div class="travel-card-title">The Shed Ski Hire</div><div class="travel-card-sub">Invoice #30486 · $90 deposit paid</div></div>
+      </div>
+      <div style="font-size:.82rem;color:var(--text);display:flex;flex-direction:column;gap:6px;">
+        <div><span style="color:var(--muted);font-size:.75rem">Pick-up</span><br><strong>Wed 12 Aug · PM (after 3pm)</strong><br><span style="color:var(--muted);font-size:.75rem">Unit A Lot 3 Nettin Circuit, Jindabyne NSW</span></div>
+        <div style="border-top:1px solid var(--ice);padding-top:6px"><span style="color:var(--muted);font-size:.75rem">Return</span><br><strong>Sat 22 Aug · PM</strong></div>
+      </div>
+      <div class="flight-meta">Total: $1,138 · Insurance: $120 · <strong>Pay at pickup: $1,048</strong><br>📞 02 6456 2711</div>
+    </div>
+    <div class="travel-card">
+      <div class="travel-card-header">
+        <div class="travel-icon">📋</div>
+        <div><div class="travel-card-title">Gear per person</div><div class="travel-card-sub">All beginners · 6 sets of skis</div></div>
+      </div>
+      <div style="font-size:.78rem;color:var(--text);display:flex;flex-direction:column;gap:4px;line-height:1.5;">
+        <div><strong>Scott & Lauren</strong> — Skis, boots, poles + helmet</div>
+        <div><strong>Jake, Caileigh, Sam & Mikki</strong> — Skis, boots, poles, jacket, pants + helmet</div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="section-title">🏠 Accommodation</h2>
+  <div class="accom-card">
+    <div class="accom-badge">✓ Booked</div>
+    <div class="accom-name">Rocky Tops</div>
+    <div class="accom-loc">📍 Dalgety, NSW — Quiet with amazing views · Sleeps 10</div>
+    <div class="accom-meta">
+      <div class="accom-meta-item"><div class="accom-meta-label">Check-in</div><div class="accom-meta-val">Wed 12 Aug · 2:00 pm</div></div>
+      <div class="accom-meta-item"><div class="accom-meta-label">Check-out</div><div class="accom-meta-val">Sun 16 Aug · 10:00 am</div></div>
+      <div class="accom-meta-item"><div class="accom-meta-label">Guests</div><div class="accom-meta-val">6 adults · 4 nights</div></div>
+      <div class="accom-meta-item"><div class="accom-meta-label">Reservation</div><div class="accom-meta-val" style="font-family:monospace">HA-P7H7BZ</div></div>
+      <div class="accom-meta-item"><div class="accom-meta-label">Total Cost</div><div class="accom-meta-val gold">AU$2,116.50 · Paid ✓</div></div>
+    </div>
+  </div>
+
+  <h2 class="section-title">🌨 Weather Forecast</h2>
+  <div style="background:#fff;border:1px solid var(--ice);border-radius:16px;padding:24px;margin-bottom:40px;box-shadow:0 2px 16px rgba(13,31,45,.05);">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;" id="weather-grid">
+      <div id="weather-perisher">
+        <div style="font-weight:600;font-size:.85rem;color:var(--deep);margin-bottom:12px;">⛷ Perisher Valley</div>
+        <div class="weather-loading">Loading forecast...</div>
+      </div>
+      <div id="weather-dalgety">
+        <div style="font-weight:600;font-size:.85rem;color:var(--deep);margin-bottom:12px;">🏠 Dalgety (Accommodation)</div>
+        <div class="weather-loading">Loading forecast...</div>
+      </div>
+    </div>
+    <div style="font-size:.7rem;color:var(--muted);margin-top:16px;text-align:center;">Forecast updates each time the page loads · Powered by Open-Meteo · Showing Wed 12 – Sun 16 Aug</div>
+  </div>
+
+  <h2 class="section-title">📅 Day by Day</h2>
+
+  <div class="day-card open">
+    <div class="day-header" onclick="this.parentElement.classList.toggle('open')">
+      <div class="day-num"><div class="day-num-label">Day</div><div class="day-num-val">1</div></div>
+      <div class="day-title-wrap"><div class="day-title">Arrival Day</div><div class="day-date">Wednesday 12 August</div></div>
+      <div class="day-chevron">▾</div>
+    </div>
+    <div class="day-body">
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-dot" style="background:#2e5573"></div><div class="tl-time">5:15 AM</div><div class="tl-title">Head to Brisbane Airport</div><div class="tl-desc">VA916 departs 7:05am. Aim to arrive at BNE by 5:30am for smooth check-in.</div><span class="tl-tag tag-travel">Travel</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#5ba4cf"></div><div class="tl-time">8:40 AM</div><div class="tl-title">Land in Sydney (SYD)</div><div class="tl-desc">Collect bags and head to the SIXT desk at the Departure Plaza — the Ford Tourneo is booked from 8:30am so it'll be ready and waiting. It's a ~4h 45m drive south to Dalgety, aim to be on the road by 10:00–10:30am.</div><span class="tl-tag tag-travel">Travel</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#e8b86d"></div><div class="tl-time">~12:30 PM</div><div class="tl-title">Lunch stop in Cooma</div><div class="tl-desc">Break up the drive with lunch in Cooma — try the Cooma Hotel or one of the local cafes. Stock up on groceries for the week!</div><span class="tl-tag tag-food">Food</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#2a9d5c"></div><div class="tl-time">~3:00 PM</div><div class="tl-title">Check in to Rocky Tops, Dalgety</div><div class="tl-desc">Settle in, claim your rooms, and soak in those amazing mountain views. You've earned it.</div><span class="tl-tag tag-accom">Accommodation</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#4a2e73"></div><div class="tl-time">After 3:00 PM</div><div class="tl-title">Collect ski hire — The Shed Ski Hire, Jindabyne</div><div class="tl-desc">Head back to Jindabyne (~35 mins) to pick up gear at <a href="https://www.theshedskihire.com.au" target="_blank" style="color:var(--accent)">The Shed Ski Hire</a>, Unit A Lot 3 Nettin Circuit. PM pickup booked for all 6 — collecting tonight means you go straight to the lifts on Day 2! <strong>AUD$1,048 payable at pickup</strong> (Invoice #30486 · $90 deposit paid). Open until 7pm. 📞 02 6456 2711<br><br>
+        <span style="font-size:.75rem;color:var(--muted)">
+          Scott — Carve skis/boots/poles + helmet &nbsp;|&nbsp;
+          Lauren — Carve skis/boots/poles + helmet &nbsp;|&nbsp;
+          Jake — Carve skis/boots/poles/pants/jacket + helmet &nbsp;|&nbsp;
+          Caileigh — Carve skis/boots/poles/pants/jacket + helmet &nbsp;|&nbsp;
+          Sam — Carve skis/boots/poles/pants/jacket + helmet &nbsp;|&nbsp;
+          Mikki — Carve skis/boots/poles/pants/jacket + helmet
+        </span></div><span class="tl-tag tag-admin">Admin</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#2a9d5c"></div><div class="tl-time">After ski hire</div><div class="tl-title">Grocery shop — Woolworths Jindabyne</div><div class="tl-desc">Stock up for the week while you're in Jindabyne — it's just a couple of minutes from The Shed and open until 9pm. There won't be much available in Dalgety, so load up on breakfast supplies, snacks, dinners and drinks. This is your last major supermarket stop before Rocky Tops!</div><span class="tl-tag tag-food">Food</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#e8b86d"></div><div class="tl-time">Evening</div><div class="tl-title">Dinner — The Dalgety Hotel</div><div class="tl-desc">Just a 2 min drive from Rocky Tops — a classic country pub with cold beer, steak, a roaring fireplace and great views. The perfect way to end a big travel day! Open Wed–Sun from 12pm. 📞 Call ahead to book a table for 6.</div><span class="tl-tag tag-food">Food</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-header" onclick="this.parentElement.classList.toggle('open')">
+      <div class="day-num"><div class="day-num-label">Day</div><div class="day-num-val">2</div></div>
+      <div class="day-title-wrap"><div class="day-title">First Tracks — Perisher Valley</div><div class="day-date">Thursday 13 August</div></div>
+      <div class="day-chevron">▾</div>
+    </div>
+    <div class="day-body">
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-dot" style="background:#2e5573"></div><div class="tl-time">7:00 AM</div><div class="tl-title">Leave Rocky Tops</div><div class="tl-desc">45 min drive to Bullocks Flat via Jindabyne. Don't forget your gear, passes and lesson confirmation!</div><span class="tl-tag tag-travel">Travel</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#4a2e73"></div><div class="tl-time">8:00 AM</div><div class="tl-title">Arrive Bullocks Flat — collect Epic passes & board Skitube</div><div class="tl-desc">Head to the pick-up machine at the Skitube Terminal (next to Guest Services / Rental office) and scan the QR code from Order #37241761 to collect all 6 passes. Then load gear and board the Skitube for the ~15 min ride up to Perisher Valley.</div><span class="tl-tag tag-admin">Admin</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#2e5573"></div><div class="tl-time">8:30 AM</div><div class="tl-title">Arrive Perisher Valley via Skitube</div><div class="tl-desc">~15 min ride up from Bullocks Flat. Head straight to the Perisher ski school meeting point — lesson starts at 9:00am!</div><span class="tl-tag tag-travel">Travel</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#1a5c8a"></div><div class="tl-time">9:00 AM – 1:00 PM</div><div class="tl-title">🎿 Private Ski Lesson — 4 Hours</div><div class="tl-desc">Perisher 4 Hour 9am Ski Private (Order #1822193 · Paid $937.00). A great way to kick off the trip and get everyone's legs under them! Meet at the Perisher ski school base.</div><span class="tl-tag tag-ski">Skiing</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#e8b86d"></div><div class="tl-time">1:00 PM</div><div class="tl-title">Lunch on the mountain</div><div class="tl-desc">Grab lunch at Perisher Centre or one of the on-mountain cafes. Hot chips and a hot chocolate mid-slope = mandatory.</div><span class="tl-tag tag-food">Food</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#1a8a5c"></div><div class="tl-time">2:00 – 4:00 PM</div><div class="tl-title">Afternoon free ski — beginner runs</div><div class="tl-desc">Put those lesson skills to work on Perisher's beginner runs! Front Valley is the perfect spot — wide, gentle groomed runs with easy access back to the village. Take it at your own pace and build confidence.</div><span class="tl-tag tag-ski">Skiing</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#e8b86d"></div><div class="tl-time">Evening</div><div class="tl-title">Dinner at Rocky Tops</div><div class="tl-desc">Cook up a group dinner back at the house and rest those legs!</div><span class="tl-tag tag-food">Food</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-header" onclick="this.parentElement.classList.toggle('open')">
+      <div class="day-num"><div class="day-num-label">Day</div><div class="day-num-val">3</div></div>
+      <div class="day-title-wrap"><div class="day-title">Perisher Valley & Blue Cow</div><div class="day-date">Friday 14 August</div></div>
+      <div class="day-chevron">▾</div>
+    </div>
+    <div class="day-body">
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-dot" style="background:#e8b86d"></div><div class="tl-time">8:00 AM</div><div class="tl-title">Early start & breakfast</div><div class="tl-desc">Get out a little earlier to hit the fresh groomed corduroy before the crowds. Strong coffee essential.</div><span class="tl-tag tag-food">Food</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#1a8a5c"></div><div class="tl-time">9:00 AM – 12:00 PM</div><div class="tl-title">Morning session — Perisher Valley</div><div class="tl-desc">Start on the beginner runs at Front Valley — wide, gentle and well-groomed, perfect for building on yesterday's lesson. When you're feeling confident, Interceptor and Supertrail are great intermediate runs nearby to step it up. Everyone can progress at their own pace!</div><span class="tl-tag tag-ski">Skiing</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#e8b86d"></div><div class="tl-time">12:00 PM</div><div class="tl-title">Lunch at Perisher</div><div class="tl-desc">Grab lunch at one of the on-mountain cafes at Perisher Centre. Hot food, great views and well-earned after a solid morning on the slopes!</div><span class="tl-tag tag-food">Food</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#1a8a5c"></div><div class="tl-time">1:30 – 3:30 PM</div><div class="tl-title">Afternoon session — Perisher Valley or Blue Cow</div><div class="tl-desc">Choose your adventure based on how the group is feeling after lunch!<br><br>
+        <span style="font-size:.78rem;color:var(--muted)">
+          <strong style="color:var(--deep)">Stay at Perisher Valley</strong> — continue building confidence on Front Valley (beginner) or push on to Interceptor and Happy Valley (intermediate).<br><br>
+          <strong style="color:var(--deep)">Head to Blue Cow</strong> — take the Express chairlift up for more variety. Luncheon Ridge and Ridge Run are great for confident beginners stepping up, while Supertrail and Eyre T-Bar suit intermediates looking for longer runs and great views.
+        </span></div><span class="tl-tag tag-ski">Skiing</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#e8b86d"></div><div class="tl-time">Evening</div><div class="tl-title">Dinner at Rocky Tops</div><div class="tl-desc">Cook up a group dinner at the house and rest those legs after a big day on the mountain!</div><span class="tl-tag tag-food">Food</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-header" onclick="this.parentElement.classList.toggle('open')">
+      <div class="day-num"><div class="day-num-label">Day</div><div class="day-num-val">4</div></div>
+      <div class="day-title-wrap"><div class="day-title">Best Runs & Last Night Celebration</div><div class="day-date">Saturday 15 August</div></div>
+      <div class="day-chevron">▾</div>
+    </div>
+    <div class="day-body">
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-dot" style="background:#1a8a5c"></div><div class="tl-time">All day</div><div class="tl-title">Everyone's favourite runs</div><div class="tl-desc">By now you know your spots! Hit the best runs, challenge yourselves on something new, or let the younger crew loose on the Smiggins terrain park. Note: Saturdays are busier — expect some lift queues.</div><span class="tl-tag tag-ski">Skiing</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#e8b86d"></div><div class="tl-time">Lunch</div><div class="tl-title">Mountain lunch</div><div class="tl-desc">Try somewhere new — maybe pack a lunch to eat at a scenic spot on the mountain.</div><span class="tl-tag tag-food">Food</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#1a8a5c"></div><div class="tl-time">Afternoon</div><div class="tl-title">Afternoon ski session</div><div class="tl-desc">Last runs of the trip — make them count! Head wherever the day takes you, whether that's cruising your favourite runs at Perisher Valley or adventuring over to Blue Cow. Finish up by 3:30pm.</div><span class="tl-tag tag-ski">Skiing</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#4a2e73"></div><div class="tl-time">3:30 PM</div><div class="tl-title">Return ski hire — The Shed, Jindabyne</div><div class="tl-desc">Head back down via Skitube to Bullocks Flat, then drive to The Shed (Unit A Lot 3 Nettin Circuit, Jindabyne) to return all gear. Return is booked for Saturday PM. 📞 02 6456 2711</div><span class="tl-tag tag-admin">Admin</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#e8b86d"></div><div class="tl-time">Evening</div><div class="tl-title">🎉 Last night dinner — The Dalgety Hotel</div><div class="tl-desc">End the trip in style! Just a 2 min drive from Rocky Tops — cold beers, steak, a roaring fireplace and great views. Share the week's best moments and celebrate an epic trip together. 📞 Call ahead to book a table for 6.</div><span class="tl-tag tag-food">Food</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-card">
+    <div class="day-header" onclick="this.parentElement.classList.toggle('open')">
+      <div class="day-num"><div class="day-num-label">Day</div><div class="day-num-val">5</div></div>
+      <div class="day-title-wrap"><div class="day-title">Homeward Bound</div><div class="day-date">Sunday 16 August</div></div>
+      <div class="day-chevron">▾</div>
+    </div>
+    <div class="day-body">
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-dot" style="background:#e8b86d"></div><div class="tl-time">Morning</div><div class="tl-title">Final breakfast at Rocky Tops</div><div class="tl-desc">Last morning with those incredible mountain views. Take it all in over a slow brekkie. Pack the night before to keep the morning smooth!</div><span class="tl-tag tag-food">Food</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#2a9d5c"></div><div class="tl-time">9:00 AM</div><div class="tl-title">Check out of Rocky Tops</div><div class="tl-desc">Checkout is 9am — pack the night before to keep the morning smooth! Do a full sweep of the house before heading off.</div><span class="tl-tag tag-accom">Accommodation</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#2e5573"></div><div class="tl-time">9:15 AM</div><div class="tl-title">Drive back to Sydney</div><div class="tl-desc">~4h 45m drive to SYD — arriving around 2:00pm. Limit stops to a quick fuel/coffee only. Need to be at the airport by 3:00pm at the latest.</div><span class="tl-tag tag-travel">Travel</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#2e5573"></div><div class="tl-time">5:00 PM</div><div class="tl-title">VA965 departs Sydney</div><div class="tl-desc">Drop off the Ford Tourneo at SIXT (Departure Plaza, SYD) — return is booked until 5:30pm so drop it off before checking in. Then straight to the terminal for your 5:00pm flight.</div><span class="tl-tag tag-travel">Travel</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#1a5c8a"></div><div class="tl-time">6:30 PM</div><div class="tl-title">Land in Brisbane 🏠</div><div class="tl-desc">Home sweet home. Already counting down to next year...</div><span class="tl-tag tag-travel">Travel</span></div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="section-title" style="margin-top:40px">💡 Good to Know</h2>
+  <div class="tips-grid">
+    <div class="tip-card"><div class="tip-card-title">🎿 Lift Passes</div>Book Perisher lift passes online in advance — you'll save money vs buying at the window. Multi-day passes offer the best value across your 3 ski days.</div>
+    <div class="tip-card"><div class="tip-card-title">🚗 Getting to Perisher</div>From Dalgety it's ~45 mins via Jindabyne. The Skitube from Bullocks Flat (near Jindabyne) also runs directly to Blue Cow & Perisher Valley — great to avoid parking hassles.</div>
+    <div class="tip-card"><div class="tip-card-title">👗 What to Pack</div>Thermals (top & bottom), waterproof ski jacket & pants, gloves, goggles, buff/beanie, and sunnies. Layers are everything! Boots come with hire if needed.</div>
+    <div class="tip-card"><div class="tip-card-title">🌨 Snow Forecast</div>Mid-to-late August is Perisher's snowiest period. Check the Perisher daily snow report as you get closer and keep an eye on the forecast the week before.</div>
+    <div class="tip-card"><div class="tip-card-title">🍔 Food & Snacks</div>Mountain cafes are pricey — pack snacks to save money. A packed lunch from the house is a great option, or budget ~$25–35 pp for an on-mountain lunch.</div>
+    <div class="tip-card"><div class="tip-card-title">🧴 Sun & Altitude</div>UV is intense on snow even on cloudy days. Pack SPF 50+ and apply generously. The altitude will tire you out faster than usual, so stay well hydrated!</div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Made with ❤️ for <strong>Scott, Lauren, Caileigh, Jake, Sam & Mikki</strong> · Perisher August 2026 · Have an amazing trip! 🏔️
+</div>
+
+<script>
+  function getWeatherIcon(code) {
+    if (code === 0) return '☀️';
+    if (code <= 2) return '⛅';
+    if (code <= 3) return '☁️';
+    if (code <= 49) return '🌫️';
+    if (code <= 59) return '🌦️';
+    if (code <= 69) return '🌧️';
+    if (code <= 79) return '❄️';
+    if (code <= 84) return '🌨️';
+    if (code <= 86) return '❄️';
+    if (code <= 99) return '⛈️';
+    return '🌡️';
+  }
+  function getWeatherDesc(code) {
+    if (code === 0) return 'Clear';
+    if (code <= 2) return 'Partly cloudy';
+    if (code <= 3) return 'Overcast';
+    if (code <= 49) return 'Foggy';
+    if (code <= 59) return 'Drizzle';
+    if (code <= 69) return 'Rain';
+    if (code <= 79) return 'Snow';
+    if (code <= 84) return 'Snow showers';
+    if (code <= 86) return 'Heavy snow';
+    if (code <= 99) return 'Thunderstorm';
+    return 'Unknown';
+  }
+  const DAYS = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+
+  async function fetchWeather(lat, lon, containerId) {
+    try {
+      const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=weathercode,temperature_2m_max,temperature_2m_min,snowfall_sum&timezone=Australia%2FSydney&start_date=2026-08-12&end_date=2026-08-16`;
+      const res = await fetch(url);
+      const data = await res.json();
+      const daily = data.daily;
+      let html = '';
+      for (let i = 0; i < daily.time.length; i++) {
+        const date = new Date(daily.time[i] + 'T00:00:00');
+        const dayName = DAYS[date.getDay()];
+        const dateStr = `${dayName} ${date.getDate()} Aug`;
+        const icon = getWeatherIcon(daily.weathercode[i]);
+        const desc = getWeatherDesc(daily.weathercode[i]);
+        const max = Math.round(daily.temperature_2m_max[i]);
+        const min = Math.round(daily.temperature_2m_min[i]);
+        const snow = daily.snowfall_sum[i];
+        html += `<div class="weather-day">
+          <div class="weather-date">${dateStr}</div>
+          <div class="weather-icon">${icon}</div>
+          <div class="weather-temps">${max}° / ${min}°</div>
+          <div class="weather-desc">${desc}${snow > 0 ? `<br><span class="weather-snow">❄ ${snow.toFixed(1)}cm</span>` : ''}</div>
+        </div>`;
+      }
+      const parent = document.getElementById(containerId);
+      const loadingEl = parent.querySelector('.weather-loading');
+      if (loadingEl) loadingEl.outerHTML = html;
+    } catch(e) {
+      const parent = document.getElementById(containerId);
+      const loadingEl = parent.querySelector('.weather-loading');
+      if (loadingEl) loadingEl.textContent = 'Forecast unavailable — check perisher.com.au';
+    }
+  }
+
+  fetchWeather(-36.4063, 148.4120, 'weather-perisher');
+  fetchWeather(-36.4998, 148.8359, 'weather-dalgety');
+
+  function toggleTodo(cb) {
+    const span = cb.nextElementSibling;
+    span.style.textDecoration = cb.checked ? 'line-through' : 'none';
+    span.style.color = cb.checked ? 'var(--muted)' : 'var(--text)';
+  }
+
+  const sf = document.getElementById('sf');
+  ['❄','❅','❆','✦','·','*'].forEach((c,i) => {
+    for(let j=0;j<3;j++){
+      const el = document.createElement('span');
+      el.className = 'snowflake';
+      el.textContent = c;
+      el.style.cssText = `left:${Math.random()*100}%;animation-duration:${4+Math.random()*7}s;animation-delay:${Math.random()*10}s;font-size:${0.5+Math.random()*1.2}rem`;
+      sf.appendChild(el);
+    }
+  });
+</script>
+</body>
+</html>
