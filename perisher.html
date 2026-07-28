@@ -505,32 +505,35 @@
   async function fetchWeather(lat, lon, containerId) {
     try {
       const tripStart = new Date('2026-08-12T00:00:00');
-      const tripEnd = new Date('2026-08-16T00:00:00');
       const now = new Date();
-      const maxForecastDate = new Date();
-      maxForecastDate.setDate(maxForecastDate.getDate() + 15);
+      now.setHours(0,0,0,0);
+      const daysUntilTrip = Math.round((tripStart - now) / (1000*60*60*24));
+      const forecastDays = daysUntilTrip + 5; // days needed to reach end of trip
 
       let url, isPreview;
-      if (tripStart <= maxForecastDate) {
-        // Trip is within forecast range — fetch exact dates
-        url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=weathercode,temperature_2m_max,temperature_2m_min,snowfall_sum&timezone=Australia%2FSydney&start_date=2026-08-12&end_date=2026-08-16`;
-        isPreview = false;
-      } else {
-        // Too early — show current 5-day forecast as preview
+      if (daysUntilTrip < 0 || forecastDays > 16) {
+        // Trip not yet in range — show current 5-day as preview
         url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=weathercode,temperature_2m_max,temperature_2m_min,snowfall_sum&timezone=Australia%2FSydney&forecast_days=5`;
         isPreview = true;
+      } else {
+        // Trip is within forecast range
+        url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=weathercode,temperature_2m_max,temperature_2m_min,snowfall_sum&timezone=Australia%2FSydney&forecast_days=${forecastDays}`;
+        isPreview = false;
       }
 
       const res = await fetch(url);
       if (!res.ok) throw new Error('API error ' + res.status);
       const data = await res.json();
       const daily = data.daily;
+
+      // Filter to only show trip dates (or all 5 if preview)
       let html = '';
       if (isPreview) {
-        html += `<div style="font-size:.7rem;color:var(--accent);margin-bottom:8px;">📅 Preview only — trip forecast loads from ~28 Jul 2026</div>`;
+        html += `<div style="font-size:.7rem;color:var(--accent);margin-bottom:8px;">📅 Preview only — trip forecast loads closer to 12 Aug</div>`;
       }
       for (let i = 0; i < daily.time.length; i++) {
         const date = new Date(daily.time[i] + 'T00:00:00');
+        if (!isPreview && (date < new Date('2026-08-12T00:00:00') || date > new Date('2026-08-16T00:00:00'))) continue;
         const dayName = DAYS[date.getDay()];
         const icon = getWeatherIcon(daily.weathercode[i]);
         const desc = getWeatherDesc(daily.weathercode[i]);
