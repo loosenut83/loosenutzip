@@ -504,11 +504,37 @@
 
   async function fetchWeather(lat, lon, containerId) {
     try {
-      const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=weathercode,temperature_2m_max,temperature_2m_min,snowfall_sum&timezone=Australia%2FSydney&start_date=2026-08-12&end_date=2026-08-16`;
+      const start = '2026-08-12';
+      const end = '2026-08-16';
+      const now = new Date();
+      const tripStart = new Date('2026-08-12');
+      const tripEnd = new Date('2026-08-16');
+      // Use actual trip dates if within forecast range (16 days), otherwise show current 5-day forecast as a preview
+      const maxForecastDate = new Date();
+      maxForecastDate.setDate(maxForecastDate.getDate() + 15);
+      let fetchStart, fetchEnd, isPreview;
+      if (tripStart <= maxForecastDate) {
+        fetchStart = start;
+        fetchEnd = end;
+        isPreview = false;
+      } else {
+        // Show current forecast as a preview until trip is within range
+        const s = new Date();
+        const e = new Date();
+        e.setDate(e.getDate() + 4);
+        fetchStart = s.toISOString().split('T')[0];
+        fetchEnd = e.toISOString().split('T')[0];
+        isPreview = true;
+      }
+      const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=weathercode,temperature_2m_max,temperature_2m_min,snowfall_sum&timezone=Australia%2FSydney&start_date=${fetchStart}&end_date=${fetchEnd}`;
       const res = await fetch(url);
+      if (!res.ok) throw new Error('API error');
       const data = await res.json();
       const daily = data.daily;
       let html = '';
+      if (isPreview) {
+        html += `<div style="font-size:.7rem;color:var(--accent);margin-bottom:8px;">📅 Showing current forecast — trip forecast available from ~28 Jul 2026</div>`;
+      }
       for (let i = 0; i < daily.time.length; i++) {
         const date = new Date(daily.time[i] + 'T00:00:00');
         const dayName = DAYS[date.getDay()];
@@ -519,7 +545,7 @@
         const min = Math.round(daily.temperature_2m_min[i]);
         const snow = daily.snowfall_sum[i];
         html += `<div class="weather-day">
-          <div class="weather-date">${dateStr}</div>
+          <div class="weather-date">${dayName} ${date.getDate()}</div>
           <div class="weather-icon">${icon}</div>
           <div class="weather-temps">${max}° / ${min}°</div>
           <div class="weather-desc">${desc}${snow > 0 ? `<br><span class="weather-snow">❄ ${snow.toFixed(1)}cm</span>` : ''}</div>
