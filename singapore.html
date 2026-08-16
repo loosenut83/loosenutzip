@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Singapore Oct 2026 — Scott, Lauren & Kim</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --sand: #f6f3ee; --mist: #e8e0d4; --deep: #1a2e1a; --forest: #2d4a2d;
+    --mid: #4a7c59; --accent: #6aab7a; --gold: #e8c46d; --text: #1a2d1a; --muted: #7a8a7a;
+  }
+  body { font-family: 'DM Sans', sans-serif; background: var(--sand); color: var(--text); min-height: 100vh; }
+
+  .hero {
+    background: linear-gradient(170deg, var(--deep) 0%, var(--forest) 40%, var(--mid) 100%);
+    padding: 60px 24px 80px; text-align: center; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content:''; position:absolute; inset:0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
+  }
+  .floaters { position:absolute; top:0; left:0; right:0; bottom:0; pointer-events:none; overflow:hidden; }
+  .floater { position:absolute; color:rgba(255,255,255,0.12); animation:floatup linear infinite; }
+  @keyframes floatup {
+    0%{transform:translateY(220px) rotate(0deg);opacity:0}
+    10%{opacity:1} 90%{opacity:.4}
+    100%{transform:translateY(-20px) rotate(180deg);opacity:0}
+  }
+  .hero-badge {
+    display:inline-block; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2);
+    color:var(--gold); font-size:.72rem; font-weight:600; letter-spacing:.2em; text-transform:uppercase;
+    padding:6px 16px; border-radius:20px; margin-bottom:20px;
+  }
+  .hero h1 { font-family:'Playfair Display',serif; font-size:clamp(2.4rem,6vw,3.8rem); color:#fff; line-height:1.1; margin-bottom:12px; }
+  .hero h1 em { font-style:italic; color:var(--gold); }
+  .hero-sub { color:rgba(255,255,255,.65); font-size:1rem; font-weight:300; margin-bottom:36px; letter-spacing:.03em; }
+  .hero-dates {
+    display:inline-flex; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15);
+    border-radius:12px; overflow:hidden; flex-wrap:wrap;
+  }
+  .hero-date-item { padding:14px 24px; text-align:center; }
+  .hero-date-item+.hero-date-item { border-left:1px solid rgba(255,255,255,.15); }
+  .hero-date-label { font-size:.65rem; letter-spacing:.15em; text-transform:uppercase; color:rgba(255,255,255,.5); margin-bottom:4px; }
+  .hero-date-val { color:#fff; font-weight:600; font-size:.9rem; }
+
+  .cd-box {
+    background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15);
+    border-radius:12px; padding:12px 16px; min-width:64px; text-align:center;
+  }
+  .cd-num { color:var(--gold); font-family:'Playfair Display',serif; font-weight:700; font-size:1.6rem; line-height:1; }
+  .cd-label { color:rgba(255,255,255,.55); font-size:.62rem; letter-spacing:.12em; text-transform:uppercase; margin-top:4px; }
+  .cd-done { color:var(--gold); font-family:'Playfair Display',serif; font-style:italic; font-size:1.1rem; }
+
+  .crew-strip {
+    background:var(--deep); padding:18px 24px;
+    display:flex; justify-content:center; flex-wrap:wrap; gap:10px;
+  }
+  .crew-pill {
+    background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1);
+    border-radius:30px; padding:7px 14px; display:flex; align-items:center; gap:8px;
+  }
+  .crew-avatar {
+    width:28px; height:28px; border-radius:50%; display:flex; align-items:center;
+    justify-content:center; font-size:.68rem; font-weight:700; color:#fff; flex-shrink:0;
+  }
+  .crew-name { color:#fff; font-size:.82rem; font-weight:500; }
+
+  .container { max-width:780px; margin:0 auto; padding:40px 20px 80px; }
+
+  .alert {
+    background:#fff8ec; border:1px solid var(--gold); border-left:4px solid var(--gold);
+    border-radius:10px; padding:14px 18px; display:flex; align-items:center; gap:12px; margin-bottom:20px;
+  }
+  .alert-icon { font-size:1.3rem; flex-shrink:0; }
+  .alert-text { font-size:.87rem; color:#6b4c00; line-height:1.4; }
+  .alert-text strong { color:#4a3300; }
+
+  .section-title {
+    font-family:'Playfair Display',serif; font-size:1.5rem; color:var(--deep);
+    margin-bottom:20px; display:flex; align-items:center; gap:10px;
+  }
+  .section-title::after { content:''; flex:1; height:1px; background:var(--mist); }
+
+  .travel-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:40px; }
+  @media(max-width:520px){.travel-grid{grid-template-columns:1fr}}
+  .travel-card {
+    background:#fff; border-radius:14px; padding:20px;
+    border:1px solid var(--mist); box-shadow:0 2px 12px rgba(26,46,26,.05);
+  }
+  .travel-card-header { display:flex; align-items:center; gap:10px; margin-bottom:14px; }
+  .travel-icon {
+    width:36px; height:36px; background:var(--deep); border-radius:8px;
+    display:flex; align-items:center; justify-content:center; font-size:1rem; color:#fff; flex-shrink:0;
+  }
+  .travel-card-title { font-weight:600; font-size:.9rem; color:var(--deep); }
+  .travel-card-sub { font-size:.75rem; color:var(--muted); }
+  .flight-row { display:flex; justify-content:space-between; align-items:center; }
+  .flight-time { font-weight:700; font-size:1.1rem; color:var(--deep); }
+  .flight-city { color:var(--muted); font-size:.75rem; margin-top:2px; }
+  .flight-arrow { color:var(--accent); font-size:1.2rem; }
+  .flight-meta { font-size:.72rem; color:var(--muted); margin-top:10px; padding-top:10px; border-top:1px solid var(--mist); }
+  .conf { font-family:monospace; background:var(--mist); padding:1px 6px; border-radius:4px; font-size:.78rem; }
+
+  .accom-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:40px; }
+  @media(max-width:560px){.accom-grid{grid-template-columns:1fr}}
+
+  .accom-card {
+    background:var(--deep); border-radius:16px; padding:24px;
+    color:#fff; position:relative; overflow:hidden;
+  }
+  .accom-card::before { content:'🌿'; position:absolute; right:20px; top:16px; font-size:5rem; opacity:.07; }
+  .accom-card.sentosa::before { content:'🌊'; }
+  .accom-badge {
+    display:inline-block; background:#2a9d5c; color:#fff;
+    font-size:.65rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+    padding:3px 10px; border-radius:12px; margin-bottom:10px;
+  }
+  .accom-name { font-family:'Playfair Display',serif; font-size:1.2rem; margin-bottom:4px; }
+  .accom-loc { color:rgba(255,255,255,.55); font-size:.82rem; margin-bottom:16px; }
+  .accom-meta { display:flex; flex-wrap:wrap; gap:8px; }
+  .accom-meta-item { background:rgba(255,255,255,.08); border-radius:8px; padding:8px 12px; }
+  .accom-meta-label { font-size:.62rem; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.45); margin-bottom:3px; }
+  .accom-meta-val { font-weight:600; font-size:.82rem; }
+  .accom-meta-val.gold { color:var(--gold); }
+
+  .cruise-card {
+    background: linear-gradient(135deg, #0d1f3d 0%, #1a3a6b 50%, #0d2d4a 100%);
+    border-radius:16px; padding:24px; color:#fff; margin-bottom:40px; position:relative; overflow:hidden;
+  }
+  .cruise-card::before { content:'🚢'; position:absolute; right:20px; top:16px; font-size:5rem; opacity:.1; }
+  .cruise-badge {
+    display:inline-block; background:#c8102e; color:#fff;
+    font-size:.65rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+    padding:3px 10px; border-radius:12px; margin-bottom:10px;
+  }
+  .cruise-name { font-family:'Playfair Display',serif; font-size:1.4rem; margin-bottom:4px; }
+  .cruise-sub { color:rgba(255,255,255,.55); font-size:.85rem; margin-bottom:18px; }
+  .cruise-meta { display:flex; flex-wrap:wrap; gap:10px; }
+  .cruise-meta-item { background:rgba(255,255,255,.08); border-radius:8px; padding:10px 16px; }
+  .cruise-meta-label { font-size:.62rem; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.45); margin-bottom:3px; }
+  .cruise-meta-val { font-weight:600; font-size:.85rem; }
+  .cruise-meta-val.gold { color:var(--gold); }
+
+  .day-card {
+    background:#fff; border-radius:16px; margin-bottom:16px;
+    border:1px solid var(--mist); box-shadow:0 2px 16px rgba(26,46,26,.05); overflow:hidden;
+  }
+  .day-header {
+    padding:18px 24px; display:flex; align-items:center; gap:16px;
+    border-bottom:1px solid transparent; cursor:pointer; user-select:none; transition:border-color .3s;
+  }
+  .day-card.open .day-header { border-bottom-color:var(--mist); }
+  .day-num {
+    width:44px; height:44px; background:var(--deep); color:#fff; border-radius:10px;
+    display:flex; flex-direction:column; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .day-num-label { font-size:.52rem; letter-spacing:.1em; text-transform:uppercase; opacity:.6; }
+  .day-num-val { font-weight:700; font-size:1.1rem; line-height:1; }
+  .day-title-wrap { flex:1; }
+  .day-title { font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--deep); }
+  .day-date { font-size:.75rem; color:var(--muted); margin-top:2px; }
+  .day-chevron { color:var(--muted); font-size:1rem; transition:transform .3s; }
+  .day-card.open .day-chevron { transform:rotate(180deg); }
+  .day-body { padding:0 24px; max-height:0; overflow:hidden; transition:max-height .4s ease, padding .3s; }
+  .day-card.open .day-body { max-height:2000px; padding:20px 24px 24px; }
+
+  .timeline { position:relative; padding-left:28px; }
+  .timeline::before {
+    content:''; position:absolute; left:7px; top:6px; bottom:6px;
+    width:2px; background:var(--mist); border-radius:2px;
+  }
+  .tl-item { position:relative; margin-bottom:18px; }
+  .tl-item:last-child { margin-bottom:0; }
+  .tl-dot {
+    position:absolute; left:-24px; top:5px;
+    width:14px; height:14px; border-radius:50%; border:2px solid #fff;
+  }
+  .tl-time { font-size:.68rem; color:var(--muted); font-weight:600; letter-spacing:.05em; margin-bottom:2px; }
+  .tl-title { font-weight:600; font-size:.9rem; color:var(--deep); margin-bottom:2px; }
+  .tl-desc { font-size:.8rem; color:var(--muted); line-height:1.55; }
+  .tl-tag {
+    display:inline-block; font-size:.62rem; font-weight:600; letter-spacing:.07em;
+    text-transform:uppercase; padding:2px 8px; border-radius:8px; margin-top:5px;
+  }
+  .tag-food{background:#fdf4e8;color:#735a2e}
+  .tag-travel{background:#e8eafd;color:#2e3573}
+  .tag-culture{background:#fde8f4;color:#73295a}
+  .tag-cruise{background:#e8f0fd;color:#1a3a6b}
+  .tag-nature{background:#edfdf3;color:#1a5c38}
+  .tag-admin{background:#f0e8fd;color:#4a2e73}
+  .tag-hotel{background:#fdf8e8;color:#73620e}
+  .tag-theme{background:#fde8e8;color:#731a1a}
+  .tag-ww2{background:#e8ede8;color:#2d3a1a}
+
+  .tips-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:40px; }
+  @media(max-width:520px){.tips-grid{grid-template-columns:1fr}}
+  .tip-card {
+    background:#fff; border-radius:12px; padding:16px;
+    border:1px solid var(--mist); font-size:.82rem; color:var(--text); line-height:1.55;
+  }
+  .tip-card-title { font-weight:600; font-size:.85rem; margin-bottom:6px; color:var(--deep); }
+
+  .footer {
+    text-align:center; padding:30px 20px; border-top:1px solid var(--mist);
+    font-size:.78rem; color:var(--muted);
+  }
+  .footer strong { color:var(--deep); }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="floaters" id="fl"></div>
+  <div class="hero-badge">🇸🇬 Singapore 2026</div>
+  <h1>The <em>Lion City</em> Awaits</h1>
+  <p class="hero-sub">Scott, Lauren & Kim — October Adventure</p>
+  <div class="hero-dates">
+    <div class="hero-date-item"><div class="hero-date-label">Fly Out</div><div class="hero-date-val">Tue 6 Oct</div></div>
+    <div class="hero-date-item"><div class="hero-date-label">Nights</div><div class="hero-date-val">9 Nights</div></div>
+    <div class="hero-date-item"><div class="hero-date-label">Cruise</div><div class="hero-date-val">4 Nights</div></div>
+    <div class="hero-date-item"><div class="hero-date-label">Fly Back</div><div class="hero-date-val">Thu 15 Oct</div></div>
+  </div>
+  <div id="countdown" style="margin-top:28px;display:inline-flex;gap:14px;flex-wrap:wrap;justify-content:center;"></div>
+</div>
+
+<div class="crew-strip">
+  <div class="crew-pill"><div class="crew-avatar" style="background:#1a5c8a">SC</div><div><div class="crew-name">Scott</div></div></div>
+  <div class="crew-pill"><div class="crew-avatar" style="background:#8a1a5c">LA</div><div><div class="crew-name">Lauren</div></div></div>
+  <div class="crew-pill"><div class="crew-avatar" style="background:#5c8a1a">KI</div><div><div class="crew-name">Kim</div></div></div>
+</div>
+
+<div class="container">
+
+  <div style="background:#edfdf3;border:1px solid #2a9d5c;border-left:4px solid #2a9d5c;border-radius:10px;padding:14px 18px;display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+    <div style="font-size:1.3rem;flex-shrink:0;">✅</div>
+    <div style="font-size:.87rem;color:#1a5c38;line-height:1.4;"><strong>Disney Adventure cruise fully paid!</strong> Reservation 44353552 — all payments complete. Have an amazing voyage! 🚢</div>
+  </div>
+
+  <div style="background:#fff;border:1px solid var(--mist);border-radius:14px;padding:22px 24px;margin-bottom:36px;box-shadow:0 2px 12px rgba(26,46,26,.05)">
+    <div style="font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--deep);margin-bottom:16px;">✅ Pre-Trip To Do</div>
+
+    <div style="font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;margin-top:4px;">🏰 Disney Cruise — Booking Window Opens 10 July</div>
+    <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:18px;">
+      <label style="display:flex;align-items:center;gap:12px;cursor:pointer;font-size:.88rem;color:var(--text);">
+        <input type="checkbox" onchange="toggleTodo(this)" style="width:18px;height:18px;accent-color:var(--deep);cursor:pointer;flex-shrink:0;">
+        <span>Complete Disney Cruise Line online check-in via Navigator app (opens 30 days before sailing — passport & travel docs)</span>
+      </label>
+    </div>
+
+    <div style="font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">📅 8 September — Online Check-In Opens at 2:00PM AEST</div>
+    <div style="background:#f0f4ff;border:1px solid #c8d4f0;border-radius:8px;padding:10px 14px;font-size:.8rem;color:#2e3a6b;margin-bottom:10px;line-height:1.5;">
+      ⏰ <strong>Log in at exactly 2:00PM AEST on 8 September</strong> — that's midnight Eastern Time, when the earliest Port Arrival Time slots are released. Slots go fast! Aim for the earliest available (~11:00AM) to give yourself the best chance of securing the Ironcycle roller coaster, Broadway show seats, and Rainforest Room spa passes before they're gone.
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:18px;">
+      <label style="display:flex;align-items:center;gap:12px;cursor:pointer;font-size:.88rem;color:var(--text);">
+        <input type="checkbox" onchange="toggleTodo(this)" style="width:18px;height:18px;accent-color:var(--deep);cursor:pointer;flex-shrink:0;">
+        <span>8 Sep · 2:00PM AEST — Log into Disney Cruise Line Navigator app and grab the earliest Port Arrival Time slot available</span>
+      </label>
+    </div>
+
+    <div style="font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">🎭 Disney Cruise — Book Onboard (First Hour!)</div>
+    <div style="background:#f0f4ff;border:1px solid #c8d4f0;border-radius:8px;padding:10px 14px;font-size:.8rem;color:#2e3a6b;margin-bottom:10px;line-height:1.5;">
+      Broadway shows are <strong>not</strong> pre-bookable before sailing — they're booked onboard via the Navigator app once connected to the ship's Wi-Fi. Connect to DCL Guest Wi-Fi the moment you board (free, no internet package needed) and lock in show seats straight away — popular sessions fill fast!
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:18px;">
+      <label style="display:flex;align-items:center;gap:12px;cursor:pointer;font-size:.88rem;color:var(--text);">
+        <input type="checkbox" onchange="toggleTodo(this)" style="width:18px;height:18px;accent-color:var(--deep);cursor:pointer;flex-shrink:0;">
+        <span>Onboard — Connect to DCL Guest Wi-Fi immediately and open Navigator app</span>
+      </label>
+      <label style="display:flex;align-items:center;gap:12px;cursor:pointer;font-size:.88rem;color:var(--text);">
+        <input type="checkbox" onchange="toggleTodo(this)" style="width:18px;height:18px;accent-color:var(--deep);cursor:pointer;flex-shrink:0;">
+        <span>Onboard — 🎢 Book Ironcycle Test Run time slot immediately via Navigator app (or run straight to Marvel Landing, Deck 19)</span>
+      </label>
+      <label style="display:flex;align-items:center;gap:12px;cursor:pointer;font-size:.88rem;color:var(--text);">
+        <input type="checkbox" onchange="toggleTodo(this)" style="width:18px;height:18px;accent-color:var(--deep);cursor:pointer;flex-shrink:0;">
+        <span>Onboard — Book Broadway show seats for all 4 nights (Walt Disney Theatre 8:15PM)</span>
+      </label>
+      <label style="display:flex;align-items:center;gap:12px;cursor:pointer;font-size:.88rem;color:var(--text);">
+        <input type="checkbox" onchange="toggleTodo(this)" style="width:18px;height:18px;accent-color:var(--deep);cursor:pointer;flex-shrink:0;">
+        <span>Onboard — Book Rainforest Room spa passes at Senses Spa reception (unlimited 4-night pass ~USD $179 pp)</span>
+      </label>
+      <label style="display:flex;align-items:center;gap:12px;cursor:pointer;font-size:.88rem;color:var(--text);">
+        <input type="checkbox" onchange="toggleTodo(this)" style="width:18px;height:18px;accent-color:var(--deep);cursor:pointer;flex-shrink:0;">
+        <span>Onboard — Book character meet-and-greet time slots via Navigator app</span>
+      </label>
+    </div>
+
+    <div style="font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">🗓️ Other Pre-Trip Tasks</div>
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <label style="display:flex;align-items:center;gap:12px;cursor:pointer;font-size:.88rem;color:var(--text);">
+        <input type="checkbox" onchange="toggleTodo(this)" style="width:18px;height:18px;accent-color:var(--deep);cursor:pointer;flex-shrink:0;">
+        <span>Book Universal Studios Singapore tickets in advance (skip the queues!)</span>
+      </label>
+      <label style="display:flex;align-items:center;gap:12px;cursor:pointer;font-size:.88rem;color:var(--text);">
+        <input type="checkbox" onchange="toggleTodo(this)" style="width:18px;height:18px;accent-color:var(--deep);cursor:pointer;flex-shrink:0;">
+        <span>Book Adventure Cove Waterpark tickets in advance</span>
+      </label>
+      <label style="display:flex;align-items:center;gap:12px;cursor:pointer;font-size:.88rem;color:var(--text);">
+        <input type="checkbox" onchange="toggleTodo(this)" style="width:18px;height:18px;accent-color:var(--deep);cursor:pointer;flex-shrink:0;">
+        <span>Book free timed entry slot for The Battlebox, Fort Canning (slots limited — book before you travel)</span>
+      </label>
+      <label style="display:flex;align-items:center;gap:12px;cursor:pointer;font-size:.88rem;color:var(--text);">
+        <input type="checkbox" onchange="toggleTodo(this)" style="width:18px;height:18px;accent-color:var(--deep);cursor:pointer;flex-shrink:0;">
+        <span>Download Grab app before you leave Australia (taxi/ride-share for Singapore)</span>
+      </label>
+      <label style="display:flex;align-items:center;gap:12px;cursor:pointer;font-size:.88rem;color:var(--text);">
+        <input type="checkbox" onchange="toggleTodo(this)" style="width:18px;height:18px;accent-color:var(--deep);cursor:pointer;flex-shrink:0;">
+        <span>Download Disney Cruise Line Navigator app (all three of you)</span>
+      </label>
+      <label style="display:flex;align-items:center;gap:12px;cursor:pointer;font-size:.88rem;color:var(--text);">
+        <input type="checkbox" onchange="toggleTodo(this)" checked style="width:18px;height:18px;accent-color:var(--deep);cursor:pointer;flex-shrink:0;">
+        <span style="text-decoration:line-through;color:var(--muted)">Confirm Holiday Inn Express Clarke Quay booking (6–8 Oct) — Booked ✓ Ref: 22629727</span>
+      </label>
+      <label style="display:flex;align-items:center;gap:12px;cursor:pointer;font-size:.88rem;color:var(--text);">
+        <input type="checkbox" onchange="toggleTodo(this)" checked style="width:18px;height:18px;accent-color:var(--deep);cursor:pointer;flex-shrink:0;">
+        <span style="text-decoration:line-through;color:var(--muted)">Book Oasia Resort Sentosa (12–15 Oct) — Booked ✓ Itinerary: 73512150313219</span>
+      </label>
+      <label style="display:flex;align-items:center;gap:12px;cursor:pointer;font-size:.88rem;color:var(--text);">
+        <input type="checkbox" onchange="toggleTodo(this)" style="width:18px;height:18px;accent-color:var(--deep);cursor:pointer;flex-shrink:0;">
+        <span>Notify bank of overseas travel</span>
+      </label>
+    </div>
+  </div>
+
+  <h2 class="section-title">✈️ Flights</h2>
+  <div class="travel-grid">
+    <div class="travel-card">
+      <div class="travel-card-header">
+        <div class="travel-icon">🛫</div>
+        <div><div class="travel-card-title">Outbound</div><div class="travel-card-sub">Tuesday 6 October</div></div>
+      </div>
+      <div class="flight-row">
+        <div><div class="flight-time">11:05 am</div><div class="flight-city">Brisbane (BNE) · Terminal I</div></div>
+        <div class="flight-arrow">→</div>
+        <div style="text-align:right"><div class="flight-time">5:25 pm</div><div class="flight-city">Singapore (SIN) · Terminal 1</div></div>
+      </div>
+      <div class="flight-meta">Qantas QF51 · Economy · Airbus A330<br>Confirmation: <span class="conf">EMZOU8</span> · Cost: AUD $1,249.78 pp</div>
+    </div>
+    <div class="travel-card">
+      <div class="travel-card-header">
+        <div class="travel-icon">🛬</div>
+        <div><div class="travel-card-title">Return</div><div class="travel-card-sub">Thursday 15 October</div></div>
+      </div>
+      <div class="flight-row">
+        <div><div class="flight-time">8:30 pm</div><div class="flight-city">Singapore (SIN) · Terminal 1</div></div>
+        <div class="flight-arrow">→</div>
+        <div style="text-align:right"><div class="flight-time">6:00 am</div><div class="flight-city">Brisbane (BNE) · Terminal I</div></div>
+      </div>
+      <div class="flight-meta">Qantas QF52 · Economy · Airbus A330 · Arrives 16 Oct<br>Confirmation: <span class="conf">EMZOU8</span> · Total flights: AUD $3,749.34</div>
+    </div>
+  </div>
+
+  <h2 class="section-title">🏨 Accommodation</h2>
+  <div class="accom-grid">
+    <div class="accom-card">
+      <div class="accom-badge">✓ Booked</div>
+      <div class="accom-name">Holiday Inn Express Clarke Quay</div>
+      <div class="accom-loc">📍 2 Magazine Road, Singapore · Clarke Quay / Singapore River</div>
+      <div class="accom-meta">
+        <div class="accom-meta-item"><div class="accom-meta-label">Check-in</div><div class="accom-meta-val">Tue 6 Oct · 2:00 PM</div></div>
+        <div class="accom-meta-item"><div class="accom-meta-label">Check-out</div><div class="accom-meta-val">Thu 8 Oct · 12:00 PM</div></div>
+        <div class="accom-meta-item"><div class="accom-meta-label">Nights</div><div class="accom-meta-val">2 nights · 2 rooms</div></div>
+        <div class="accom-meta-item"><div class="accom-meta-label">Guests</div><div class="accom-meta-val">Scott · Lauren · Kim</div></div>
+        <div class="accom-meta-item"><div class="accom-meta-label">Inclusions</div><div class="accom-meta-val">Free breakfast · Free WiFi ✅</div></div>
+        <div class="accom-meta-item"><div class="accom-meta-label">Webjet Ref</div><div class="accom-meta-val" style="font-family:monospace">22629727</div></div>
+        <div class="accom-meta-item"><div class="accom-meta-label">Hotel Phone</div><div class="accom-meta-val">65-6-589 8000</div></div>
+        <div class="accom-meta-item"><div class="accom-meta-label">Free Cancel</div><div class="accom-meta-val gold">Until 6 Sep 2026 · 5:00 PM</div></div>
+      </div>
+    </div>
+    <div class="accom-card sentosa">
+      <div class="accom-badge">✓ Booked</div>
+      <div class="accom-name">Oasia Resort Sentosa</div>
+      <div class="accom-loc">📍 23 Beach View, Sentosa, Singapore 098679</div>
+      <div class="accom-meta">
+        <div class="accom-meta-item"><div class="accom-meta-label">Check-in</div><div class="accom-meta-val">Mon 12 Oct · 3:00 PM</div></div>
+        <div class="accom-meta-item"><div class="accom-meta-label">Check-out</div><div class="accom-meta-val">Thu 15 Oct · 12:00 PM</div></div>
+        <div class="accom-meta-item"><div class="accom-meta-label">Nights</div><div class="accom-meta-val">3 nights · 2 rooms</div></div>
+        <div class="accom-meta-item"><div class="accom-meta-label">Room Type</div><div class="accom-meta-val">Courtyard Premier</div></div>
+        <div class="accom-meta-item"><div class="accom-meta-label">Guests</div><div class="accom-meta-val">3 adults</div></div>
+        <div class="accom-meta-item"><div class="accom-meta-label">Expedia Itinerary</div><div class="accom-meta-val" style="font-family:monospace">73512150313219</div></div>
+        <div class="accom-meta-item"><div class="accom-meta-label">Total Cost</div><div class="accom-meta-val gold">AU$1,995.02</div></div>
+        <div class="accom-meta-item"><div class="accom-meta-label">Free Cancel</div><div class="accom-meta-val gold">Until 5 Oct 2026 · 11:59 PM</div></div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="section-title">🚢 Disney Adventure Cruise</h2>
+  <div class="cruise-card">
+    <div class="cruise-badge">🏰 Disney Cruise Line</div>
+    <div class="cruise-name">Disney Adventure</div>
+    <div class="cruise-sub">4-Night Cruise from Singapore · Reservation #44353552</div>
+    <div class="cruise-meta">
+      <div class="cruise-meta-item"><div class="cruise-meta-label">Embark</div><div class="cruise-meta-val">Thu 8 Oct</div></div>
+      <div class="cruise-meta-item"><div class="cruise-meta-label">Debark</div><div class="cruise-meta-val">Mon 12 Oct</div></div>
+      <div class="cruise-meta-item"><div class="cruise-meta-label">Stateroom 1</div><div class="cruise-meta-val">9382 · Deck 9 · Scott & Lauren</div></div>
+      <div class="cruise-meta-item"><div class="cruise-meta-label">Stateroom 2</div><div class="cruise-meta-val">9207 · Kim</div></div>
+      <div class="cruise-meta-item"><div class="cruise-meta-label">Category</div><div class="cruise-meta-val">Deluxe Oceanview w/ Verandah</div></div>
+      <div class="cruise-meta-item"><div class="cruise-meta-label">Dining</div><div class="cruise-meta-val">5:45 PM seating · Show 8:15 PM</div></div>
+    </div>
+  </div>
+
+  <h2 class="section-title">📅 Day by Day</h2>
+
+  <!-- DAY 1 -->
+  <div class="day-card open">
+    <div class="day-header" onclick="this.parentElement.classList.toggle('open')">
+      <div class="day-num"><div class="day-num-label">Day</div><div class="day-num-val">1</div></div>
+      <div class="day-title-wrap"><div class="day-title">Arrival — Welcome to Singapore</div><div class="day-date">Tuesday 6 October</div></div>
+      <div class="day-chevron">▾</div>
+    </div>
+    <div class="day-body">
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-dot" style="background:#2e5573"></div><div class="tl-time">11:05 AM</div><div class="tl-title">QF51 departs Brisbane</div><div class="tl-desc">Check in at Terminal I at least 2.5 hours early. Confirmation: EMZOU8.</div><span class="tl-tag tag-travel">Travel</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#2e5573"></div><div class="tl-time">5:25 PM</div><div class="tl-title">Arrive Changi Airport, Terminal 1</div><div class="tl-desc">Clear immigration and collect bags. Connect to Changi's free WiFi and open the Grab app — book a <strong>GrabCar XL</strong> (fits all 3 of you plus luggage comfortably). Set pickup to Terminal 1 and destination to Holiday Inn Express Clarke Quay. Head to the Ride-Hailing bay in arrivals — clearly signposted. Your driver's name, photo and plate number appear in the app. Cost: SGD $40–45 (~AUD $47–52) total for the three of you, ~30 mins to the hotel. Drivers speak English — no issues at all. Australians don't need a visa — just your passport.</div><span class="tl-tag tag-travel">Travel</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#1a5c38"></div><div class="tl-time">7:00 PM</div><div class="tl-title">Check in — Holiday Inn Express Clarke Quay</div><div class="tl-desc">Freshen up, get settled, and take it easy. Don't miss the rooftop pool views — especially beautiful at night with the city lit up. Early night — big days ahead!</div><span class="tl-tag tag-hotel">Hotel</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#735a2e"></div><div class="tl-time">Dinner</div><div class="tl-title">Malayan Settlement — Clarke Quay</div><div class="tl-desc">A 5-minute walk from the hotel. Singaporean and Malaysian classics in a warm, lively atmosphere with live music. Rated 4.8 stars — a perfect and easy introduction to Singapore's food scene after a long flight.</div><span class="tl-tag tag-food">Food</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 2 -->
+  <div class="day-card">
+    <div class="day-header" onclick="this.parentElement.classList.toggle('open')">
+      <div class="day-num"><div class="day-num-label">Day</div><div class="day-num-val">2</div></div>
+      <div class="day-title-wrap"><div class="day-title">Marina Bay, Chinatown & The Battlebox 🪖</div><div class="day-date">Wednesday 7 October</div></div>
+      <div class="day-chevron">▾</div>
+    </div>
+    <div class="day-body">
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-dot" style="background:#735a2e"></div><div class="tl-time">8:30 AM</div><div class="tl-title">Buffet breakfast at the hotel</div><div class="tl-desc">Free breakfast included at Holiday Inn Express — fuel up before a big day of exploring.</div><span class="tl-tag tag-food">Food</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#2d3a1a"></div><div class="tl-time">9:00 AM</div><div class="tl-title">🪖 The Battlebox — Fort Canning Hill</div><div class="tl-desc">Singapore's secret WW2 underground command bunker, just 5 minutes from your hotel. This is where Lieutenant-General Percival met with his generals on the morning of 15 February 1942 to decide whether to surrender to the Japanese — one of the most pivotal moments in WW2. The Surrender Conference Room is preserved exactly as it was. Free entry; the enhanced audio guide experience (SGD $20) is highly recommended. ⚠️ Book your free timed entry slot online in advance — slots are limited.</div><span class="tl-tag tag-ww2">WW2 History</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#73295a"></div><div class="tl-time">10:30 AM</div><div class="tl-title">Merlion Park & Marina Bay waterfront</div><div class="tl-desc">Grab to Merlion Park for the classic Singapore photo. Go early to beat the crowds and get the best shot with the iconic skyline behind you.</div><span class="tl-tag tag-culture">Culture</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#735a2e"></div><div class="tl-time">12:30 PM</div><div class="tl-title">Lunch — Gluttons Bay</div><div class="tl-desc">Open-air hawker cluster right on Marina Bay waterfront. Great views, great food. Try char kway teow and fresh sugar cane juice.</div><span class="tl-tag tag-food">Food</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#73295a"></div><div class="tl-time">2:00 PM</div><div class="tl-title">Chinatown — Buddha Tooth Relic Temple</div><div class="tl-desc">Grab to Chinatown. The Buddha Tooth Relic Temple is a stunning five-storey temple with a museum and rooftop garden. Dress modestly (covered shoulders and knees).</div><span class="tl-tag tag-culture">Culture</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#735a2e"></div><div class="tl-time">3:30 PM</div><div class="tl-title">Maxwell Food Centre — Tian Tian Chicken Rice</div><div class="tl-desc">A short walk from the temple. Tian Tian Hainanese Chicken Rice is legendary — expect a queue, but it's worth every minute. One of Singapore's most iconic dishes.</div><span class="tl-tag tag-food">Food</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#73295a"></div><div class="tl-time">4:30 PM</div><div class="tl-title">Wander Pagoda & Sago Streets</div><div class="tl-desc">Explore Chinatown's colourful shophouses, silk stores, and souvenir stalls. Great spot for t-shirts, magnets, and gifts to bring home — prices are negotiable if buying multiple items!</div><span class="tl-tag tag-culture">Culture</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#1a3a6b"></div><div class="tl-time">7:15 PM</div><div class="tl-title">Gardens by the Bay — Garden Rhapsody</div><div class="tl-desc">Arrive by 7:15pm to grab a good spot for the 7:45pm show. The Supertrees come alive in a spectacular free light and music show — absolutely unmissable. A second show runs at 8:45pm if you miss the first.</div><span class="tl-tag tag-nature">Nature</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 3 -->
+  <div class="day-card">
+    <div class="day-header" onclick="this.parentElement.classList.toggle('open')">
+      <div class="day-num"><div class="day-num-label">Day</div><div class="day-num-val">3</div></div>
+      <div class="day-title-wrap"><div class="day-title">Embark Disney Adventure 🚢</div><div class="day-date">Thursday 8 October</div></div>
+      <div class="day-chevron">▾</div>
+    </div>
+    <div class="day-body">
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-dot" style="background:#735a2e"></div><div class="tl-time">8:30 AM</div><div class="tl-title">Hotel breakfast</div><div class="tl-desc">Last morning at Holiday Inn Express. Relax and eat well before the cruise adventure begins.</div><span class="tl-tag tag-food">Food</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#2e5573"></div><div class="tl-time">10:00 AM</div><div class="tl-title">Singapore Flyer</div><div class="tl-desc">The world's largest observation wheel — 360° views of Singapore, the marina, and beyond. About 30 mins for a full rotation. SGD $40 per person. Book in advance.</div><span class="tl-tag tag-culture">Sightseeing</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#1a3a6b"></div><div class="tl-time">12:00 PM</div><div class="tl-title">Check out & Grab to Marina Bay Cruise Centre</div><div class="tl-desc">About 10 minutes from the hotel. Allow plenty of time for check-in procedures at the terminal.</div><span class="tl-tag tag-cruise">Cruise</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#1a3a6b"></div><div class="tl-time">3:00 PM onwards</div><div class="tl-title">Board the Disney Adventure 🏰</div><div class="tl-desc">Find Stateroom 9382 on Deck 9 — your Deluxe Oceanview with Verandah. Staterooms won't be ready until ~1:30–2:00PM so use this time to explore the ship and get your priorities sorted!</div><span class="tl-tag tag-cruise">Cruise</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#735a2e"></div><div class="tl-time">Lunch Onboard</div><div class="tl-title">🍽️ Navigator's Club — Sit Down Lunch</div><div class="tl-desc">Skip the buffet chaos on embarkation day — head straight to <strong>Navigator's Club</strong> for a proper sit-down table-service lunch. It's included in your fare and far more relaxed than the packed buffet restaurants. The menu features beautiful dishes including Hainanese chicken rice and laksa lemak. Open ~12:00–1:30PM so time it right. If Navigator's Club is full, try <strong>Hollywood Spotlight Club</strong> or <strong>Animator's Palate</strong> as backups. 🍦 Also — find Wheezy's Freezies for free unlimited soft serve, available till midnight every day!</div><span class="tl-tag tag-food">Food</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#735a2e"></div><div class="tl-time">5:45 PM</div><div class="tl-title">🍽️ First dinner seating onboard</div><div class="tl-desc">Your early dining seating — enjoy your first Disney rotational restaurant experience. You'll visit a different themed restaurant each night with the same serving team throughout the cruise.</div><span class="tl-tag tag-food">Food</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#1a3a6b"></div><div class="tl-time">8:15 PM</div><div class="tl-title">🎭 First Broadway show — Walt Disney Theatre</div><div class="tl-desc">Head straight to the app when you board to lock in your show seats for all four nights — no queuing needed, but popular sessions fill fast. With early dining, shows follow dinner each evening.</div><span class="tl-tag tag-cruise">Shows</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAYS 4-6 -->
+  <div class="day-card">
+    <div class="day-header" onclick="this.parentElement.classList.toggle('open')">
+      <div class="day-num"><div class="day-num-label">Days</div><div class="day-num-val" style="font-size:.85rem">4–6</div></div>
+      <div class="day-title-wrap"><div class="day-title">At Sea — Disney Adventure 🌊</div><div class="day-date">Friday 9 – Sunday 11 October</div></div>
+      <div class="day-chevron">▾</div>
+    </div>
+    <div class="day-body">
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-dot" style="background:#1a3a6b"></div><div class="tl-time">Each Morning</div><div class="tl-title">Check the Daily Navigator</div><div class="tl-desc">Disney's daily activity guide is delivered to your stateroom each evening for the next day. Plan your day around shows, character meets, and special events. Don't miss a thing!</div><span class="tl-tag tag-cruise">Cruise</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#731a1a"></div><div class="tl-time">October Theme</div><div class="tl-title">🎃 Halloween on the High Seas</div><div class="tl-desc">October Disney cruises feature the Halloween on the High Seas theme — spooky deck parties, character meet-and-greets in Halloween costumes, themed menus, and a Villains Night Out deck party. Pack something fun to wear!</div><span class="tl-tag tag-theme">Special Event</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#1a5c38"></div><div class="tl-time">Daytime</div><div class="tl-title">Pools, rides & relaxation</div><div class="tl-desc">Enjoy the pools, the Ironcycle Test Run roller coaster (820-foot track — longest at sea!), Pym Quantum Racers, Groot Galaxy Spin, deck parties, spa treatments, and simply relaxing on your verandah watching the ocean go by.</div><span class="tl-tag tag-nature">Leisure</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#735a2e"></div><div class="tl-time">5:45 PM</div><div class="tl-title">🍽️ Dinner — Rotational Dining</div><div class="tl-desc">Your early dining seating rotates you through the themed restaurants each night — Navigator's Club, Animator's Palate, and Pixar Market — always with the same serving team who learn your names and preferences. One formal night during the cruise — pack a nice outfit!</div><span class="tl-tag tag-food">Food</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#1a3a6b"></div><div class="tl-time">8:15 PM</div><div class="tl-title">🎭 Broadway Show — Walt Disney Theatre</div><div class="tl-desc">With early dining, you head to the show after dinner each night. Shows include: <em>Remember</em> (a heartwarming Wall-E musical — reviewers say the whole theatre cried!), <em>Avengers Assemble!</em> (Marvel action spectacular with stunts and special effects), <em>Disney Seas the Adventure</em> (a musical journey through iconic Disney songs), <em>Moana: Call of the Sea</em> (outdoor performance at Wayfinder Bay), and <em>Captain Jack Sparrow & The Siren Queen</em> (swashbuckling pirate adventure). ⚠️ Book your seats via the Disney Navigator app in your first hour onboard — no queuing, but spots go fast!</div><span class="tl-tag tag-cruise">Shows</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 7 -->
+  <div class="day-card">
+    <div class="day-header" onclick="this.parentElement.classList.toggle('open')">
+      <div class="day-num"><div class="day-num-label">Day</div><div class="day-num-val">7</div></div>
+      <div class="day-title-wrap"><div class="day-title">Debark, Bag Drop & 🎢 Universal Studios</div><div class="day-date">Monday 12 October</div></div>
+      <div class="day-chevron">▾</div>
+    </div>
+    <div class="day-body">
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-dot" style="background:#1a3a6b"></div><div class="tl-time">7:00 AM</div><div class="tl-title">🧳 Express Walk-Off — Debark Disney Adventure</div><div class="tl-desc">Keep all your bags in your stateroom overnight rather than putting them out for standard luggage service. No sign-up needed — simply carry everything off yourself. People start lining up by 7AM and Express Walk-Off typically begins around 7:00–7:30AM once customs clears the ship. Exact timing will be in the Navigator app the night before. Clear customs at the terminal and you're free!</div><span class="tl-tag tag-cruise">Cruise</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#1a5c38"></div><div class="tl-time">7:30 AM</div><div class="tl-title">GrabCar XL to Oasia Resort Sentosa & bag drop</div><div class="tl-desc">About 15 mins from Marina Bay Cruise Centre. Check in early and ask the hotel to store your luggage — rooms won't be ready until 3PM but they're happy to hold bags. Freshen up and head straight out!</div><span class="tl-tag tag-hotel">Hotel</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#735a2e"></div><div class="tl-time">8:30 AM</div><div class="tl-title">Breakfast at Festive Walk</div><div class="tl-desc">Rather than breakfast at Oasia, walk over to Festive Walk near the Universal entrance — plenty of cafes and restaurants, including Hard Rock Cafe for a hearty all-day breakfast. No backtracking needed — breakfast, then straight into the park.</div><span class="tl-tag tag-food">Food</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#731a1a"></div><div class="tl-time">9:30 AM</div><div class="tl-title">🎢 Walk to Universal Studios Singapore — 3 minutes!</div><div class="tl-desc">Yes — Universal Studios is literally a 3-minute walk from Oasia! Gates open at 10AM, though turnstiles typically open around 9:45AM. Optional: head straight to the Guest Services counter just inside the main entrance to rent a manual wheelchair for Kim (SGD $15/day, first-come-first-served) — a comfortable option to keep pace with the group all day. Note: only manual wheelchairs can access ride queues and vehicles, not electric ones. Open until 8PM on Mondays — a full long day!</div><span class="tl-tag tag-theme">Theme Park</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#731a1a"></div><div class="tl-time">10:00 AM</div><div class="tl-title">Battlestar Galactica: HUMAN vs CYLON</div><div class="tl-desc">Head straight to Sci-Fi City for this first — it's the single most popular ride in the park and queues build fastest here. On a quiet Monday you may walk straight on if you're among the first through the gates.</div><span class="tl-tag tag-theme">Theme Park</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#731a1a"></div><div class="tl-time">~10:20 AM</div><div class="tl-title">Transformers: The Ride</div><div class="tl-desc">Right next door in Sci-Fi City — do this second while crowds are still thin.</div><span class="tl-tag tag-theme">Theme Park</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#731a1a"></div><div class="tl-time">~10:45 AM</div><div class="tl-title">Revenge of the Mummy — Ancient Egypt</div><div class="tl-desc">Continue counter-clockwise into Ancient Egypt for another major thrill ride while it's still early.</div><span class="tl-tag tag-theme">Theme Park</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#731a1a"></div><div class="tl-time">~11:15 AM</div><div class="tl-title">Jurassic Park Rapids Adventure — The Lost World</div><div class="tl-desc">A great one to do mid-morning — you will get wet, so worth doing after early photos rather than right at the start.</div><span class="tl-tag tag-theme">Theme Park</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#731a1a"></div><div class="tl-time">~11:45 AM</div><div class="tl-title">Minion Land — Despicable Me Minion Mayhem & Silly Swirly</div><div class="tl-desc">By late morning the initial rope-drop rush to Minion Land has usually dispersed. Enjoy the rides and a wander through Minion Marketplace — look out for the Singapore-exclusive Zodiac Minion collectibles.</div><span class="tl-tag tag-theme">Theme Park</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#735a2e"></div><div class="tl-time">12:30 PM</div><div class="tl-title">Lunch inside the park</div><div class="tl-desc">Multiple dining options inside the park. Try Loui's NY Pizza Parlor in the New York zone or Oasis Spice Café in The Lost World.</div><span class="tl-tag tag-food">Food</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#731a1a"></div><div class="tl-time">Afternoon</div><div class="tl-title">Remaining zones & shows</div><div class="tl-desc">Don't miss the live shows — Rhythm Truck and the WaterWorld show are crowd favourites. Pace yourselves — it's a hot day!</div><span class="tl-tag tag-theme">Theme Park</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#735a2e"></div><div class="tl-time">Evening</div><div class="tl-title">3-min walk back to Oasia — collect bags & check in</div><div class="tl-desc">Stroll back to the hotel, collect your stored luggage and check into your room. Dinner at Bedrock Origin onsite or a relaxed meal nearby. You've earned a rest after a big day!</div><span class="tl-tag tag-food">Food</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 8 -->
+  <div class="day-card">
+    <div class="day-header" onclick="this.parentElement.classList.toggle('open')">
+      <div class="day-num"><div class="day-num-label">Day</div><div class="day-num-val">8</div></div>
+      <div class="day-title-wrap"><div class="day-title">🌊 Adventure Cove Waterpark</div><div class="day-date">Tuesday 13 October</div></div>
+      <div class="day-chevron">▾</div>
+    </div>
+    <div class="day-body">
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-dot" style="background:#1a3a6b"></div><div class="tl-time">10:00 AM</div><div class="tl-title">🌊 Walk to Adventure Cove Waterpark — 3 minutes!</div><div class="tl-desc">Another attraction literally on your doorstep! Arrive at opening for the shortest queues. Highlights include Rainbow Reef snorkelling (swim with thousands of tropical fish), the Adventure River lazy river, and the RipTide Rocket water coaster. Open 10AM–5PM — last admission 4PM. Book tickets in advance.</div><span class="tl-tag tag-nature">Water Park</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#735a2e"></div><div class="tl-time">Lunch</div><div class="tl-title">Lunch at Adventure Cove</div><div class="tl-desc">Multiple dining spots inside the park. Fuel up between slides and swims.</div><span class="tl-tag tag-food">Food</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#735a2e"></div><div class="tl-time">Evening</div><div class="tl-title">Dinner at Oasia</div><div class="tl-desc">Stroll back to the hotel after a big day in the water. Dinner at Bedrock Origin onsite or a relaxed beachside meal at Coastes on Siloso Beach.</div><span class="tl-tag tag-food">Food</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 9 -->
+  <div class="day-card">
+    <div class="day-header" onclick="this.parentElement.classList.toggle('open')">
+      <div class="day-num"><div class="day-num-label">Day</div><div class="day-num-val">9</div></div>
+      <div class="day-title-wrap"><div class="day-title">Fort Siloso, Little India & Kampong Glam 🪖</div><div class="day-date">Wednesday 14 October</div></div>
+      <div class="day-chevron">▾</div>
+    </div>
+    <div class="day-body">
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-dot" style="background:#735a2e"></div><div class="tl-time">9:00 AM</div><div class="tl-title">Relaxed breakfast at Oasia</div><div class="tl-desc">Start the day slowly — enjoy the hotel's calm atmosphere before heading out.</div><span class="tl-tag tag-food">Food</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#2d3a1a"></div><div class="tl-time">10:00 AM</div><div class="tl-title">🔫 Fort Siloso — Singapore's only preserved WW2 coastal fort</div><div class="tl-desc">Right on Sentosa — a short walk or monorail from your hotel. Explore the underground tunnels, massive coastal guns, and the fascinating Surrender Chambers — which recreate both the British surrender to Japan in February 1942 AND the Japanese surrender in September 1945. A genuinely moving and immersive experience. Free entry, open daily 10AM–6PM.</div><span class="tl-tag tag-ww2">WW2 History</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#73295a"></div><div class="tl-time">10:00 AM</div><div class="tl-title">Little India — Sri Veeramakaliamman Temple</div><div class="tl-desc">Grab to Little India. The Sri Veeramakaliamman Temple is one of Singapore's oldest and most beautiful Hindu temples — with an intricately decorated gopuram (tower). Dress modestly and remove shoes before entering.</div><span class="tl-tag tag-culture">Culture</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#735a2e"></div><div class="tl-time">11:00 AM</div><div class="tl-title">Tekka Centre — Indian hawker food</div><div class="tl-desc">In the heart of Little India — a vibrant hawker centre strong in Indian food. Try fragrant biryani from Allauddin's (Michelin Bib Gourmand), roti prata, and rich curry. Don't miss the fresh fruit juices.</div><span class="tl-tag tag-food">Food</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#73295a"></div><div class="tl-time">12:30 PM</div><div class="tl-title">Wander Little India streets</div><div class="tl-desc">Explore the fragrant spice shops, vibrant fabric stores, and flower garland stalls along Serangoon Road and Buffalo Road. One of the most colourful neighbourhoods in Asia.</div><span class="tl-tag tag-culture">Culture</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#73295a"></div><div class="tl-time">2:00 PM</div><div class="tl-title">Kampong Glam — Sultan Mosque</div><div class="tl-desc">Short Grab to Singapore's Malay-Muslim quarter. The golden-domed Sultan Mosque is stunning — one of Singapore's most important religious sites. Dress modestly. Free to enter.</div><span class="tl-tag tag-culture">Culture</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#73295a"></div><div class="tl-time">3:00 PM</div><div class="tl-title">Haji Lane</div><div class="tl-desc">A narrow, colourful alley lined with indie boutiques, quirky cafés, and vibrant street art. Perfect for a coffee stop and some final souvenir shopping. Very Instagrammable!</div><span class="tl-tag tag-culture">Culture</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#735a2e"></div><div class="tl-time">7:00 PM</div><div class="tl-title">Final Singapore dinner</div><div class="tl-desc">Back to Sentosa for a special last night dinner. Treat yourselves to Bedrock Origin at the hotel or head to Coastes on Siloso Beach for a magical beachside dinner under the stars.</div><span class="tl-tag tag-food">Food</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 10 -->
+  <div class="day-card">
+    <div class="day-header" onclick="this.parentElement.classList.toggle('open')">
+      <div class="day-num"><div class="day-num-label">Day</div><div class="day-num-val">10</div></div>
+      <div class="day-title-wrap"><div class="day-title">Changi Chapel, Final Morning & Homeward Bound ✈️</div><div class="day-date">Thursday 15 October</div></div>
+      <div class="day-chevron">▾</div>
+    </div>
+    <div class="day-body">
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-dot" style="background:#735a2e"></div><div class="tl-time">Morning</div><div class="tl-title">Leisurely breakfast & final Sentosa moments</div><div class="tl-desc">Take it slowly — enjoy the hotel one last time. A final walk on Sentosa beach or a last dip in the Oasia pool. Pack the night before to keep the morning stress-free!</div><span class="tl-tag tag-food">Food</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#2d3a1a"></div><div class="tl-time">10:30 AM</div><div class="tl-title">🕊️ Changi Chapel & Museum</div><div class="tl-desc">On the way to the airport — a deeply moving tribute to the thousands of Allied POWs and civilians held at Changi during the Japanese occupation. Contains replicas of the famous Changi Murals painted by British POW Stanley Warren during captivity, plus personal possessions donated by prisoners. Especially poignant for Australians — many Australian soldiers were among those held here. Allow 1–1.5 hours. Near Changi Airport, open Tuesday–Sunday.</div><span class="tl-tag tag-ww2">WW2 History</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#735a2e"></div><div class="tl-time">12:30 PM</div><div class="tl-title">Jewel Changi Airport — final lunch</div><div class="tl-desc">A 10-minute Grab from the museum. Jewel is one of the world's most spectacular airport terminals, with the stunning HSBC Rain Vortex waterfall at its heart. Excellent restaurants and last-minute shopping. Allow 2+ hours here.</div><span class="tl-tag tag-food">Food</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#2e5573"></div><div class="tl-time">5:30 PM</div><div class="tl-title">Head through security at Terminal 1</div><div class="tl-desc">Allow plenty of time — aim to clear security at least 2.5 hours before departure. Singapore's airport is wonderful, so arriving early is a pleasure, not a chore!</div><span class="tl-tag tag-travel">Travel</span></div>
+        <div class="tl-item"><div class="tl-dot" style="background:#2e5573"></div><div class="tl-time">8:30 PM</div><div class="tl-title">QF52 departs Singapore</div><div class="tl-desc">Overnight flight back to Brisbane. Arrives 6:00am Friday 16 October at Terminal I. Already planning the next trip...</div><span class="tl-tag tag-travel">Travel</span></div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="section-title" style="margin-top:40px">💡 Good to Know — Singapore</h2>
+  <div class="tips-grid">
+    <div class="tip-card"><div class="tip-card-title">🚗 Getting Around</div>Download the <strong>Grab app</strong> before you leave Australia — it's Singapore's Uber equivalent and works brilliantly. Taxis are also readily available. Most rides across the city will cost SGD $10–30.</div>
+    <div class="tip-card"><div class="tip-card-title">💰 Money & Currency</div>SGD $1 ≈ AUD $1.15. Singapore is cashless-friendly — credit cards are accepted almost everywhere. Hawker meals: SGD $4–10. Mid-range restaurant dinner: SGD $40–80 per person.</div>
+    <div class="tip-card"><div class="tip-card-title">🌡️ October Weather</div>October is warm and humid — around 30°C with occasional afternoon showers. Pack light, breathable clothing, a small umbrella, and comfortable walking shoes. The humidity will surprise you!</div>
+    <div class="tip-card"><div class="tip-card-title">🍜 Must-Try Dishes</div>Hainanese chicken rice, laksa, char kway teow, chilli crab, roti prata, bak kut teh, kaya toast with soft-boiled eggs, and mango sticky rice. Singapore is arguably the world's best food city — eat everything!</div>
+    <div class="tip-card"><div class="tip-card-title">👗 What to Pack</div>Light, breathable clothing (linen is great), comfortable walking shoes, a light cardigan for air-conditioned restaurants and malls, SPF 50+ sunscreen, insect repellent, and modest cover-ups for temples. Pack one smart outfit for formal night onboard!</div>
+    <div class="tip-card"><div class="tip-card-title">📱 Connectivity</div>Singapore has excellent mobile coverage. Consider an international roaming plan with your Aussie carrier, or buy a local SIM card at Changi Airport on arrival (~SGD $15 for unlimited data for 7 days).</div>
+    <div class="tip-card"><div class="tip-card-title">🛂 Entry Requirements</div>Australians get visa-free entry to Singapore for up to 30 days — just your passport needed. Make sure all passports are valid for at least 6 months beyond your travel dates.</div>
+    <div class="tip-card"><div class="tip-card-title">🎃 Halloween on the High Seas</div>Your October sailing includes Disney's Halloween theme — deck parties, Villains Night Out, characters in Halloween costumes, and themed menus. Pack something fun to wear for the deck party — even a simple costume accessory goes a long way!</div>
+  </div>
+
+  <h2 class="section-title" style="margin-top:40px">🚢 Disney Adventure — Onboard Tips</h2>
+
+  <div style="background:#fff;border:1px solid var(--mist);border-radius:14px;padding:20px 24px;margin-bottom:16px;box-shadow:0 2px 12px rgba(26,46,26,.05)">
+    <div style="font-weight:600;font-size:.95rem;color:var(--deep);margin-bottom:12px;">⚡ First Hour Onboard — Do These Immediately</div>
+    <div style="display:flex;flex-direction:column;gap:8px;font-size:.83rem;color:var(--text);line-height:1.55;">
+      <div style="display:flex;gap:10px;"><span style="color:var(--accent);flex-shrink:0;font-weight:700;">1.</span><span><strong>Connect to DCL Guest Wi-Fi</strong> — free, no internet package needed. This unlocks the Navigator app onboard. Do this before anything else.</span></div>
+      <div style="display:flex;gap:10px;"><span style="color:var(--accent);flex-shrink:0;font-weight:700;">2.</span><span><strong>🎢 Book Ironcycle Test Run time slot — top priority!</strong> Open the Navigator app immediately and grab a slot, OR run straight up to Marvel Landing on Deck 19 before the crowds settle in. This is the busiest attraction onboard and slots go extremely fast. Note: staterooms won't be ready yet — use this window to head straight up. Budget 4–6 minutes to walk from Deck 6 to Deck 19. If you miss embarkation day, try again during the 5:45PM dinner service window when most guests are at their tables.</span></div>
+      <div style="display:flex;gap:10px;"><span style="color:var(--accent);flex-shrink:0;font-weight:700;">3.</span><span><strong>Book Broadway show seats</strong> — open the Navigator app and lock in all four nights immediately. Popular time slots fill within the first hour.</span></div>
+      <div style="display:flex;gap:10px;"><span style="color:var(--accent);flex-shrink:0;font-weight:700;">4.</span><span><strong>Head to Senses Spa reception</strong> — secure your Rainforest Room passes before they sell out. Either visit the desk or book via the app. Unlimited 4-night pass is ~USD $179 per person — significantly better value than a single-day pass (~USD $79).</span></div>
+      <div style="display:flex;gap:10px;"><span style="color:var(--accent);flex-shrink:0;font-weight:700;">5.</span><span><strong>Book any remaining specialty dining</strong> — if Palo Brunch wasn't secured pre-cruise, head to the dining desk immediately.</span></div>
+      <div style="display:flex;gap:10px;"><span style="color:var(--accent);flex-shrink:0;font-weight:700;">6.</span><span><strong>Link all three of your phones</strong> to the stateroom in the Navigator app to unlock the free onboard chat — so you can message each other anywhere on the ship without using mobile data.</span></div>
+    </div>
+  </div>
+
+  <div class="tips-grid">
+    <div class="tip-card"><div class="tip-card-title">🍽️ Dining Tips</div>You can request dishes from previous restaurants — your serving team follows you each night and remembers your preferences. Order as many courses as you like, it's all included. Room service breakfast via door-hanger card is still free (leave it outside your cabin the night before) — perfect for a slow verandah morning. Note: other room service now has a USD $5 fee + 18% gratuity.</div>
+    <div class="tip-card"><div class="tip-card-title">🌅 Make the Most of Your Verandah</div>Deck 9 Deluxe Oceanview with Verandah is a wonderful cabin. Watch Singapore's skyline disappear as you sail on embarkation evening. Morning coffee on the verandah on sea days is one of cruising's great simple pleasures. It's also a lovely quiet retreat when the ship is busy.</div>
+    <div class="tip-card"><div class="tip-card-title">🎭 Don't Miss These</div><strong>Lion King: Celebration in the Sky</strong> — the world's only fireworks show at sea, narrated by Shah Rukh Khan. Check the Daily Navigator for the night it runs and get a good deck spot early. <strong>Remember</strong> (the Wall-E musical) — reviewers say the whole theatre cried. Prioritise this one.</div>
+    <div class="tip-card"><div class="tip-card-title">❤️ Use the Heart Feature</div>In the Navigator app, tap the heart on any activity you're interested in — it sets a 15-minute reminder before it starts. Great for deck parties and character appearances. Check the Daily Navigator each evening for the next day's schedule and plan your morning over dinner.</div>
+    <div class="tip-card"><div class="tip-card-title">💆 Rainforest Room — Senses Spa</div>Adults-only thermal suite with steam room, sauna, aromatherapy showers, heated stone loungers with ocean views, outdoor hot tub, and an ice lounge. The Disney Adventure has no adults-only pool deck — this is the quiet adult retreat onboard. Ideal on sea days. Unlimited pass ~USD $179 per person for the full cruise.</div>
+    <div class="tip-card"><div class="tip-card-title">👗 Formal Night</div>There'll be one formal night during your 4-night sailing — the rotational dining restaurants are beautiful settings for a dressed-up dinner. Pack one smart outfit each. Disney characters also appear in formal attire that night — great photo opportunity!</div>
+    <div class="tip-card"><div class="tip-card-title">💰 Gratuities & Onboard Account</div>USD $14.50 per person per night is automatically added to your onboard account — that's ~USD $174 total for the three of you across 4 nights. Check your onboard credit balance in the app; it can be used for spa, specialty dining, drinks, and merchandise.</div>
+    <div class="tip-card"><div class="tip-card-title">🎢 Cabin & Luggage Tips</div>Cabins may not be ready until 1:30–2PM on embarkation day — pack a small day bag with swimwear and what you need for the afternoon. Your main luggage will be delivered to your stateroom later. Do a thorough sweep of your cabin before disembarking — easy to leave things behind!</div>
+    <div class="tip-card"><div class="tip-card-title">🚢 Future Cruise Tip</div>If you love the Disney Adventure and think you'd sail again, you can book a placeholder cruise onboard for just USD $200, which gives you 10% off your next Disney Cruise Line booking. You have 18 months to use it — worth doing before you disembark!</div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Made with ❤️ for <strong>Scott, Lauren & Kim</strong> · Singapore October 2026 · Have an absolutely magical trip! 🇸🇬✨
+</div>
+
+<script>
+  function toggleTodo(cb) {
+    const span = cb.nextElementSibling;
+    span.style.textDecoration = cb.checked ? 'line-through' : 'none';
+    span.style.color = cb.checked ? 'var(--muted)' : 'var(--text)';
+  }
+
+  const fl = document.getElementById('fl');
+  ['🌺','✦','❋','·','🌿','✿','*'].forEach((c) => {
+    for(let j=0;j<4;j++){
+      const el = document.createElement('span');
+      el.className = 'floater';
+      el.textContent = c;
+      el.style.cssText = `left:${Math.random()*100}%;animation-duration:${6+Math.random()*8}s;animation-delay:${Math.random()*12}s;font-size:${0.5+Math.random()*1.2}rem`;
+      fl.appendChild(el);
+    }
+  });
+
+  // Countdown to departure — 6 Oct 2026, 11:05 AM AEST (Brisbane, UTC+10 year-round)
+  const departure = new Date('2026-10-06T11:05:00+10:00').getTime();
+  const countdownEl = document.getElementById('countdown');
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const diff = departure - now;
+
+    if (diff <= 0) {
+      countdownEl.innerHTML = '<div class="cd-done">✈️ Bon voyage — have an amazing trip!</div>';
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+    countdownEl.innerHTML = `
+      <div class="cd-box"><div class="cd-num">${days}</div><div class="cd-label">Days</div></div>
+      <div class="cd-box"><div class="cd-num">${hours}</div><div class="cd-label">Hours</div></div>
+      <div class="cd-box"><div class="cd-num">${mins}</div><div class="cd-label">Mins</div></div>
+      <div class="cd-box"><div class="cd-num">${secs}</div><div class="cd-label">Secs</div></div>
+    `;
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
+
+</body>
+</html>
