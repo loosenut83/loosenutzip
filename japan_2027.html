@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Japan 2027 — Tokyo • Hakuba • Kyoto</title>
+<style>
+:root{--bg:#f4f7f9;--card:#fff;--text:#18212b;--muted:#697681;--line:#e2e8ec;--blue:#1f648f;--pale:#edf6fb;--gold:#9a6b16}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(#eaf4f8,#f4f7f9 360px);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+.wrap{max-width:980px;margin:auto;padding:22px 16px 60px}.hero{background:linear-gradient(135deg,#173c58,#2d789f);color:#fff;padding:30px;border-radius:24px;box-shadow:0 10px 28px #173c5818}.eyebrow{font-size:.75rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;opacity:.8}h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.05;margin:5px 0 8px}.subtitle{margin:0;opacity:.9}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:22px}.stat{padding:12px;border:1px solid #ffffff2a;background:#ffffff18;border-radius:14px}.stat b{display:block;font-size:1.1rem}.stat span{font-size:.78rem;opacity:.8}.count{margin-top:16px;padding:12px 14px;border-radius:14px;background:#ffffff18;font-weight:700}
+section{margin-top:20px}.sectionhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}h2{font-size:1.2rem;margin:0}.buttons{display:flex;gap:7px}button{border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 11px;font-weight:700;cursor:pointer}
+.overview{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.box,.card{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:0 8px 24px #18212b0b}.box{padding:16px}.box h3{margin:0 0 4px;font-size:1rem}.box p{margin:0;color:var(--muted);font-size:.9rem}
+.card{overflow:hidden}details{border-bottom:1px solid var(--line)}details:last-child{border:0}summary{list-style:none;cursor:pointer;padding:16px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px}summary::-webkit-details-marker{display:none}.left{display:flex;align-items:center;gap:12px}.date{min-width:76px;text-align:center;background:var(--pale);color:var(--blue);border-radius:11px;padding:6px 8px;font-weight:800;font-size:.8rem}.day{font-weight:800}.type{font-size:.82rem;color:var(--muted)}.arrow{color:var(--muted)}details[open] .arrow{transform:rotate(180deg)}.body{padding:0 18px 17px 106px}.body ul{list-style:none;margin:0;padding:0}.body li{padding:8px 0;border-top:1px dashed var(--line)}.body li:first-child{border-top:0}.tag{display:inline-block;border-radius:999px;padding:2px 8px;font-size:.7rem;font-weight:800;margin-left:5px;background:#fff5df;color:var(--gold)}.tag.booked{background:#dff3e4;color:#237a3b}.check input:checked + span{text-decoration:line-through;color:#7a858d}.check input:checked + span .booked{background:#dff3e4;color:#237a3b}
+.checklist{padding:14px 18px}.month{margin:18px 0 5px;padding-top:4px;border-top:1px solid var(--line);font-size:.85rem;letter-spacing:.08em;color:var(--blue)}.month:first-child{margin-top:0;border-top:0}.check{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid #eef1f3}.check:last-child{border:0}.check input{width:18px;height:18px;margin-top:4px;accent-color:var(--blue)}.priority{font-size:.7rem;color:var(--gold);font-weight:800}
+.footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:28px}
+@media(max-width:720px){.stats,.overview{grid-template-columns:repeat(2,1fr)}.body{padding-left:18px}}
+@media(max-width:480px){.stats,.overview{grid-template-columns:1fr 1fr}.hero{padding:22px;border-radius:18px}.date{min-width:64px;font-size:.72rem}.left{gap:8px}}
+
+
+
+.check.completed span { text-decoration: line-through; color: #7a858d; }
+.check.completed .tag.booked{background:#dff3e4;color:#237a3b}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow">Japan • February 2027 • FLIGHTS CONFIRMED</div>
+<h1>Tokyo • Hakuba • Kyoto</h1>
+<p class="subtitle">Five ski days, Evergreen lessons, Kyoto and a final Tokyo day.</p>
+<div class="stats">
+<div class="stat"><b>12 nights</b><span>Tokyo + Hakuba + Kyoto</span></div>
+<div class="stat"><b>5 ski days</b><span>Skiing & Snowboarding</span></div>
+<div class="stat"><b>6 nights</b><span>Hakuba</span></div>
+<div class="stat"><b>A$4,864.56</b><span>Flights for 2</span></div>
+</div>
+<div id="count" class="count">Countdown loading…</div>
+</header>
+
+<section>
+<div class="sectionhead"><h2>✈️ Confirmed flight booking</h2></div>
+<div class="card" style="padding:18px">
+<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px">
+<div style="border:1px solid var(--line);border-radius:15px;padding:15px"><h3>QF61 <span class="tag booked">BOOKED</span></h3><strong>Brisbane → Tokyo Narita</strong><p style="color:var(--muted);margin:6px 0 0">Sun 7 Feb 2027 • 09:20 → 17:30 • Direct • 9h 10m • Airbus A330 • Economy Saver</p></div>
+<div style="border:1px solid var(--line);border-radius:15px;padding:15px"><h3>QF26 <span class="tag booked">BOOKED</span></h3><strong>Tokyo Haneda → Sydney</strong><p style="color:var(--muted);margin:6px 0 0">Fri 19 Feb 2027 • 06:55 → 18:55 local • Direct • 10h • Airbus A330 • Economy Saver</p></div>
+<div style="border:1px solid var(--line);border-radius:15px;padding:15px"><h3>QF558 <span class="tag booked">BOOKED</span></h3><strong>Sydney → Brisbane</strong><p style="color:var(--muted);margin:6px 0 0">Fri 19 Feb 2027 • 21:50 → 22:25 • 1h 35m • Boeing 737 • Economy Saver</p></div>
+<div style="border:1px solid var(--line);border-radius:15px;padding:15px"><h3>Booking ENPI79</h3><strong>A$4,864.56 total</strong><p style="color:var(--muted);margin:6px 0 0">2 passengers • A$2,432.28 each • issued 19 Aug 2026</p></div>
+</div></div></section>
+
+<section>
+<div class="sectionhead"><h2>Trip at a glance</h2></div>
+<div class="overview">
+<div class="box"><h3>✈️ Sun 7 Feb</h3><p>Fly to Tokyo and stay overnight.</p></div>
+<div class="box"><h3>🏂 Tue 9 – Sat 13</h3><p>Five days of Skiing & Snowboarding in Hakuba.</p></div>
+<div class="box"><h3>⛩️ Sun 14 – Wed 17</h3><p>Kyoto, then afternoon train to Tokyo.</p></div>
+</div>
+</section>
+
+<section>
+<div class="sectionhead"><h2>Daily itinerary</h2><div class="buttons"><button onclick="document.querySelectorAll('details').forEach(x=>x.open=true)">Expand</button><button onclick="document.querySelectorAll('details').forEach(x=>x.open=false)">Collapse</button></div></div>
+<div class="card">
+
+<details open><summary><div class="left"><div class="date">SUN<br>7 FEB</div><div><div class="day">Fly to Tokyo</div><div class="type">Arrival day</div></div></div><span class="arrow">⌄</span></summary><div class="body"><ul>
+<li>✈️ <strong>Qantas QF61 — Brisbane (BNE) → Tokyo Narita (NRT)</strong> <span class="tag booked">BOOKED</span><br>
+<strong>09:20 → 17:30</strong> • Direct • 9h 10m • Economy Saver • Airbus A330</li>
+<li>🏨 Check in to Tokyo hotel.</li><li>🌙 Easy evening after the flight.</li>
+</ul></div></details>
+
+<details><summary><div class="left"><div class="date">MON<br>8 FEB</div><div><div class="day">Tokyo → Hakuba</div><div class="type">Travel + ski setup</div></div></div><span class="arrow">⌄</span></summary><div class="body"><ul>
+<li>🚄 Train Tokyo → Hakuba.</li><li>🏨 <strong>Hotel Abest Happo Aldea — CONFIRMED</strong> <span class="tag">BOOKED</span><br>
+8–14 Feb • 6 nights • 2 adults • Comfort Twin Room (Non-Smoking) • 36 m² • 2 single beds • private shower booth & toilet • breakfast included • <strong>A$4,219.27</strong> • reservation confirmed. Free cancellation until <strong>18 Jan 2027</strong>; 100% cancellation fee from 19 Jan.</li><li>🎿 Afternoon: collect Scott's snowboard and Lauren's skis from <strong>Rhythm Happo</strong> and complete fitting. <span class="tag">BOOK</span></li><li>♨️ Onsen / relax.</li><li>📌 Plan around the confirmed ~3-minute walk to Sakka rather than relying on an unconfirmed Abest ski shuttle.</li>
+</ul></div></details>
+
+<details><summary><div class="left"><div class="date">TUE<br>9 FEB</div><div><div class="day">Ski Day 1</div><div class="type">Lessons • Sakka / Happo-One</div></div></div><span class="arrow">⌄</span></summary><div class="body"><ul>
+<li>🏂 <strong>Scott — Private beginner snowboard lesson with Evergreen.</strong> <span class="tag">BOOK</span></li>
+<li>🎿 <strong>Lauren — Private ski lesson.</strong> <span class="tag">BOOK</span></li>
+<li>⛷️ Skiing & Snowboarding.</li><li>♨️ Onsen after skiing.</li>
+</ul></div></details>
+
+<details><summary><div class="left"><div class="date">WED<br>10 FEB</div><div><div class="day">Ski Day 2</div><div class="type">Scott lesson</div></div></div><span class="arrow">⌄</span></summary><div class="body"><ul>
+<li>🏂 <strong>Scott — Snowboard lesson with Evergreen.</strong> <span class="tag">BOOK</span></li>
+<li>🎿 Lauren — Skiing.</li><li>⛷️ Skiing & Snowboarding.</li><li>♨️ Onsen after skiing.</li>
+</ul></div></details>
+
+<details><summary><div class="left"><div class="date">THU<br>11 FEB</div><div><div class="day">Ski Day 3</div><div class="type">Skiing & Snowboarding</div></div></div><span class="arrow">⌄</span></summary><div class="body"><ul>
+<li>⛷️ <strong>Skiing & Snowboarding.</strong></li><li>🗺️ Choose terrain/resort based on conditions.</li><li>♨️ Onsen after skiing.</li>
+</ul></div></details>
+
+<details><summary><div class="left"><div class="date">FRI<br>12 FEB</div><div><div class="day">Ski Day 4</div><div class="type">Skiing & Snowboarding</div></div></div><span class="arrow">⌄</span></summary><div class="body"><ul>
+<li>⛷️ <strong>Skiing & Snowboarding.</strong></li><li>🗺️ Use conditions and energy levels to choose the day.</li><li>♨️ Onsen after skiing.</li>
+</ul></div></details>
+
+<details><summary><div class="left"><div class="date">SAT<br>13 FEB</div><div><div class="day">Ski Day 5</div><div class="type">Final Hakuba ski day</div></div></div><span class="arrow">⌄</span></summary><div class="body"><ul>
+<li>⛷️ <strong>Skiing & Snowboarding.</strong></li><li>📸 Final mountain day.</li><li>🧳 Pack for Kyoto and prepare for Sunday travel.</li>
+</ul></div></details>
+
+<details><summary><div class="left"><div class="date">SUN<br>14 FEB</div><div><div class="day">Hakuba → Kyoto</div><div class="type">Travel day</div></div></div><span class="arrow">⌄</span></summary><div class="body"><ul>
+<li>🚌 <strong>Hakuba → Nagano bus:</strong> buy the ticket before boarding (on the day, using the station/bus-terminal vending machine or ticketing point). Allow time to purchase the ticket and queue. <span class="tag">BOOK ON DAY</span></li><li>🚄 Nagano → Tsuruga → Kyoto.</li><li>🏨 Check in to Onyado Nono Kyoto Shichijo.</li><li>♨️ Natural hot spring and relaxed evening.</li>
+</ul></div></details>
+
+<details><summary><div class="left"><div class="date">MON<br>15 FEB</div><div><div class="day">Kyoto</div><div class="type">Full sightseeing day</div></div></div><span class="arrow">⌄</span></summary><div class="body"><ul>
+<li>⛩️ Kyoto sightseeing.</li><li>🍜 Explore Kyoto food and dinner.</li><li>♨️ Onyado Nono onsen.</li>
+</ul></div></details>
+
+<details><summary><div class="left"><div class="date">TUE<br>16 FEB</div><div><div class="day">Kyoto</div><div class="type">Full sightseeing day</div></div></div><span class="arrow">⌄</span></summary><div class="body"><ul>
+<li>⛩️ Kyoto sightseeing.</li><li>🛍️ Shopping / food / evening wandering.</li><li>♨️ Onyado Nono onsen.</li>
+</ul></div></details>
+
+<details><summary><div class="left"><div class="date">WED<br>17 FEB</div><div><div class="day">Kyoto morning → Tokyo</div><div class="type">Travel afternoon</div></div></div><span class="arrow">⌄</span></summary><div class="body"><ul>
+<li>🌅 Kyoto morning — final sightseeing / shopping.</li><li>🚄 Afternoon Shinkansen Kyoto → Tokyo. <span class="tag">BOOK</span></li><li>🏨 Check in to final Tokyo hotel.</li><li>🌃 Final Tokyo evening.</li>
+</ul></div></details>
+
+<details><summary><div class="left"><div class="date">THU<br>18 FEB</div><div><div class="day">Tokyo</div><div class="type">Full final day</div></div></div><span class="arrow">⌄</span></summary><div class="body"><ul>
+<li>🗼 Full day Tokyo.</li><li>🍣 Final dinner.</li><li>🧳 Pack for Brisbane.</li>
+</ul></div></details>
+
+<details><summary><div class="left"><div class="date">FRI<br>19 FEB</div><div><div class="day">Fly Tokyo → Brisbane</div><div class="type">Home</div></div></div><span class="arrow">⌄</span></summary><div class="body"><ul>
+<li>✈️ <strong>Qantas QF26 + QF558 — Tokyo Haneda (HND) → Brisbane (BNE)</strong> <span class="tag booked">BOOKED</span><br>
+<strong>06:55 → 22:25</strong> • 1 stop • 15h 30m elapsed • Economy Saver • Airbus A330 + Boeing 737</li>
+</ul></div></details>
+
+</div>
+</section>
+
+<section>
+<div class="sectionhead"><h2>To-do & bookings</h2></div>
+<div class="card checklist">
+
+<h3 class="month">AUGUST 2026</h3>
+<label class="check"><input type="checkbox" id="todo1" checked><span><strong>International flights — BOOKED</strong> — QF61 + QF26 + QF558, booking reference ENPI79. Total A$4,864.56 for 2 passengers.</span></label>
+<label class="check completed"><input type="checkbox" checked id="todo2" checked><span><strong>Hakuba accommodation — Hotel Abest Happo Aldea</strong> — <strong>BOOKED</strong>. Comfort Twin Room (Non-Smoking), 8–14 Feb, 6 nights, 2 adults, breakfast included. Total A$4,219.27. Free cancellation until 18 Jan 2027.<span class="tag booked">BOOKED</span></span></label>
+
+<h3 class="month">7 OCTOBER 2026</h3>
+<label class="check"><input type="checkbox" id="todo3"><span><strong>Book first Tokyo accommodation</strong> — Sat 7–Mon 8 Feb; target date is exactly 4 months before check-in. Prefer a refundable rate. <span class="priority">BOOK</span></span></label>
+
+<h3 class="month">14 OCTOBER 2026</h3>
+<label class="check"><input type="checkbox" id="todo4"><span><strong>Book Kyoto accommodation</strong> — target date is exactly 4 months before check-in on Sun 14 Feb. Prefer a refundable rate so we can recheck prices later. <span class="priority">BOOK</span></span></label>
+
+<h3 class="month">17 OCTOBER 2026</h3>
+<label class="check"><input type="checkbox" id="todo5"><span><strong>Book final Tokyo accommodation</strong> — Wed 17–Fri 19 Feb; target date is exactly 4 months before check-in. Prefer a refundable rate. <span class="priority">BOOK</span></span></label>
+
+<h3 class="month">LAST WEEK OF OCTOBER 2026</h3>
+<label class="check"><input type="checkbox" id="todo6"><span><strong>Book Evergreen — Scott Day 1</strong> — private beginner snowboard lesson for Tue 9 Feb.</span></label>
+<label class="check"><input type="checkbox" id="todo7"><span><strong>Book Evergreen — Scott Day 2</strong> — snowboard lesson for Wed 10 Feb.</span></label>
+<label class="check"><input type="checkbox" id="todo8"><span><strong>Book Lauren's private ski lesson</strong> — Tue 9 Feb.</span></label>
+
+<h3 class="month">DECEMBER 2026</h3>
+<label class="check"><input type="checkbox" id="tokyo-gokart"><span><strong>Book Tokyo go-karting</strong> — target Thursday 18 Feb; choose operator, route and time. Confirm required driving documents before booking. <span class="priority">BOOK</span></span></label>
+
+<label class="check"><input type="checkbox" id="todo9"><span><strong>Choose & book Hakuba lift passes</strong> — compare <strong>5-day Hakuba Valley</strong> vs <strong>Happo-One</strong>. Check price per person, whether Lauren is likely to ski all 5 days, which resorts we want to ski, pass validity/flexibility, current snow/conditions and non-refundable terms.</span></label>
+
+<h3 class="month">FIRST WEEK OF JANUARY 2027</h3>
+<label class="check"><input type="checkbox" id="todo10"><span><strong>Apply for International Driving Permits (IDPs)</strong> — Scott & Lauren, if required for the trip.</span></label>
+
+<h3 class="month">8 JANUARY 2027</h3>
+<label class="check"><input type="checkbox" id="todo11"><span><strong>Check Hakuba → Nagano winter bus timetable</strong> — confirm the 2026–27 Alpico timetable and decide which Sunday 14 Feb bus to take. <span class="priority">CHECK</span></span></label>
+<label class="check"><input type="checkbox" id="todo12"><span><strong>Book JR Tokyo → Nagano</strong> — reservations open <strong>Friday 8 January 2027 at 10:00am Japan time</strong>. <span class="priority">10:00 AM JST</span></span></label>
+<label class="check"><input type="checkbox" id="todo13"><span><strong>Book Rhythm Happo rentals</strong> — Scott snowboard + Lauren skis; arrange afternoon-before collection for Mon 8 Feb.</span></label>
+
+<h3 class="month">14 JANUARY 2027</h3>
+<label class="check"><input type="checkbox" id="todo14"><span><strong>Book Nagano → Kyoto rail tickets</strong> — reservations open <strong>Thursday 14 January 2027 at 10:00am Japan time</strong>. Choose the train after checking the Hakuba → Nagano bus connection. <span class="priority">10:00 AM JST</span></span></label>
+
+<h3 class="month">17 JANUARY 2027</h3>
+<label class="check"><input type="checkbox" id="todo15"><span><strong>Book Kyoto → Tokyo Tokaido Shinkansen</strong> — reservations open <strong>one month before travel</strong>, Sunday 17 January 2027 at 10:00am Japan time. <span class="priority">10:00 AM JST</span></span></label>
+
+<h3 class="month">OTHER TO-DOS</h3>
+<label class="check"><input type="checkbox" id="todo16"><span><strong>Plan Kyoto sightseeing</strong> — two full days plus Wednesday morning.</span></label>
+<label class="check"><input type="checkbox" id="todo17"><span><strong>Confirm airport transfer</strong> — Tokyo hotel → departure airport for Fri 19 Feb.</span></label>
+<label class="check"><input type="checkbox" id="todo18"><span><strong>Final trip check</strong> — passports, travel insurance, bookings, ski lessons and rental confirmations.</span></label>
+
+</div>
+</section>
+
+<div class="footer">Working itinerary — update as bookings are confirmed.</div>
+</div>
+<script>
+const target=new Date("2027-02-07T00:00:00+10:00");
+function tick(){const e=document.getElementById("count"),d=target-new Date();if(d<=0){e.textContent="🇯🇵 The Japan trip is underway!";return}const days=Math.floor(d/86400000),h=Math.floor(d/3600000)%24,m=Math.floor(d/60000)%60;e.textContent=`⏳ ${days} days, ${h} hours and ${m} minutes until Tokyo`;}
+tick();setInterval(tick,30000);
+document.querySelectorAll('.check input').forEach(x=>{let k='japan2027_'+x.id;let saved=localStorage.getItem(k);if(saved===null){localStorage.setItem(k,x.checked?'1':'0')}else{x.checked=saved==='1'}x.onchange=()=>localStorage.setItem(k,x.checked?'1':'0')});
+</script>
+</body></html>
